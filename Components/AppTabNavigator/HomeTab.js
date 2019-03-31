@@ -24,7 +24,9 @@ class HomeTab extends Component {
     return (
       <Container style={styles.container}>
         <SearchBar
-          placeholder="Type Here..."
+          containerStyle={{ backgroundColor: 'transparent' }}
+          inputStyle={{ backgroundColor: 'grey' }}
+          placeholder="Begin your search..."
           onChangeText={this.updateSearch}
           value={search}
         />

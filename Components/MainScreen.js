@@ -12,6 +12,14 @@ import SettingsTab from './AppTabNavigator/SettingsTab';
 
 export default class MainScreen extends Component {
   static navigationOptions = {
+    headerStyle: {
+      backgroundColor: 'light-grey'
+    },
+
+    headerTineColor: 'white',
+    headerTitleStyle: {
+      fontWeight: '300'
+    },
     headerLeft: <Icon name="ios-add-circle" style={{ paddingLeft: 10 }} />,
     title: 'screencache',
     headerRight: <Icon name="ios-settings" style={{ paddingRight: 10 }} />
@@ -44,14 +52,13 @@ const AppTabNavigator = createMaterialTopTabNavigator(
             backgroundColor: 'white'
           }
         }),
-        backgroundColor: 'white'
+        backgroundColor: 'grey'
       },
       indicatorStyle: {
         height: 0
       },
-      activeTintColor: '#000',
+      activeTintColor: 'white',
       inactiveTintColor: '#d1cece',
-      activeBackgroundColor: 'white',
       showLabel: false,
       showIcon: true
     }

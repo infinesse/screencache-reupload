@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'native-base';
 import { SearchBar } from 'react-native-elements';
+import { StyleSheet, View, Text } from 'react-native';
 
 class SettingsTab extends Component {
   static navigationOptions = {
@@ -9,23 +10,24 @@ class SettingsTab extends Component {
     )
   };
 
-  state = {
-    search: ''
-  };
-  updateSearch = search => {
-    this.setState({ search });
-  };
-
   render() {
-    const { search } = this.state;
-
     return (
-      <SearchBar
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={search}
-      />
+      <View style={styles.container}>
+        <Text style={styles.setTextColor}>Settings</Text>
+      </View>
     );
   }
 }
 export default SettingsTab;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'black'
+  },
+  setTextColor: {
+    color: 'white'
+  }
+});
