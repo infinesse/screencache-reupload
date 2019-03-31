@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Platform } from 'react-native';
+import { Platform } from 'react-native';
 
 import { Icon } from 'native-base';
 import {
@@ -58,11 +58,3 @@ const AppTabNavigator = createMaterialTopTabNavigator(
   }
 );
 const AppTabContainer = createAppContainer(AppTabNavigator);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});

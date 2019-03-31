@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Dimensions, Image } from 'react-native';
 
 var images = [
   require('../assets/baby.jpeg'),
@@ -47,11 +47,3 @@ class CardComponent extends Component {
   }
 }
 export default CardComponent;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});

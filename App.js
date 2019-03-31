@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import MainScreen from './Components/MainScreen';
 
@@ -14,12 +13,3 @@ const MainStackNavigator = createStackNavigator({
   }
 });
 const AppRun = createAppContainer(MainStackNavigator);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
