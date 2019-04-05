@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icon } from 'native-base';
 import { SearchBar } from 'react-native-elements';
 import { StyleSheet, View, Text } from 'react-native';
+import Game from './Game';
 
 class SettingsTab extends Component {
   static navigationOptions = {
@@ -12,9 +13,10 @@ class SettingsTab extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.setTextColor}>Settings</Text>
-      </View>
+      <Game randomNumberCount={6} />
+      // <View style={styles.container}>
+      //   <Text style={styles.setTextColor}>Settings</Text>
+      // </View>
     );
   }
 }
