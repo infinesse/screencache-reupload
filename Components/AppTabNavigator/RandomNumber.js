@@ -4,7 +4,8 @@ import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 class RandomNumber extends React.Component {
   static propTypes = {
-    number: PropTypes.number.isRequired
+    number: PropTypes.number.isRequired,
+    isDisabled: PropTypes.bool.isRequired
   };
   handlePress = () => {
     console.log(this.props.number);
@@ -12,7 +13,9 @@ class RandomNumber extends React.Component {
   render() {
     return (
       <TouchableOpacity onPress={this.handlePress}>
-        <Text style={styles.random}>{this.props.number}</Text>
+        <Text style={[styles.random, this.props.isDisabled && styles.disabled]}>
+          {this.props.number}
+        </Text>
       </TouchableOpacity>
     );
   }
@@ -25,6 +28,9 @@ const styles = StyleSheet.create({
     marginVertical: 25,
     fontSize: 35,
     textAlign: 'center'
+  },
+  disabled: {
+    opacity: 0.3
   }
 });
 
