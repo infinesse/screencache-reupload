@@ -8,7 +8,7 @@ class Game extends React.Component {
     randomNumberCount: PropTypes.number.isRequired
   };
   state = {
-    selectedNumbers: [0, 4]
+    selectedNumbers: []
   };
 
   randomNumbers = Array.from({ length: this.props.randomNumberCount }).map(
@@ -26,6 +26,12 @@ class Game extends React.Component {
       selectedNumbers: [...prevState.selectedNumbers, numberIndex]
     }));
   };
+  // gameStatus = () => {
+  //   const sumSelected = this.state.selectedIds.reduce((acc, curr) => {
+  //     return acc + this.randomNumbers[curr];
+  //   }, 0);
+  //   console.log(sumSelected);
+  // };
 
   render() {
     return (
@@ -35,6 +41,7 @@ class Game extends React.Component {
           {this.randomNumbers.map((randomNumber, index) => (
             <RandomNumber
               key={index}
+              id={index}
               number={randomNumber}
               isDisabled={this.isNumberSelected(index)}
               onPress={this.selectNumber}

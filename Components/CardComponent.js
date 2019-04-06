@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Image } from 'react-native';
+import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
 
 // var images = [
 //   require('../assets/baby.jpeg'),
@@ -41,20 +41,22 @@ class CardComponent extends Component {
   renderHome = () => {
     return images.map((image, index) => {
       return (
-        <View
-          key={index}
-          style={[
-            { width: width / 3 },
-            { height: height / 3 },
-            { marginBottom: 2 },
-            index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }
-          ]}
-        >
-          <Image
-            style={{ flex: 1, width: undefined, height: undefined }}
-            source={image}
-          />
-        </View>
+        <TouchableOpacity onPress={() => console.log(index)}>
+          <View
+            key={index}
+            style={[
+              { width: width / 3 },
+              { height: height / 3 },
+              { marginBottom: 2 },
+              index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }
+            ]}
+          >
+            <Image
+              style={{ flex: 1, width: undefined, height: undefined }}
+              source={image}
+            />
+          </View>
+        </TouchableOpacity>
       );
     });
   };
