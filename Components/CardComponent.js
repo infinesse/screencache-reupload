@@ -41,7 +41,7 @@ class CardComponent extends Component {
   renderHome = () => {
     return images.map((image, index) => {
       return (
-        <TouchableOpacity onPress={() => console.log(index)}>
+        <TouchableOpacity onPress={() => console.warn(index)} key={index}>
           <View
             key={index}
             style={[
