@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
 
-// var images = [
-//   require('../assets/baby.jpeg'),
-//   require('../assets/belly.jpeg'),
-//   require('../assets/catposts.jpeg'),
-//   require('../assets/catzilla.jpeg'),
-//   require('../assets/chonk.jpeg'),
-//   require('../assets/flavors.jpeg'),
-//   require('../assets/gang.jpeg'),
-//   require('../assets/mask.jpeg'),
-//   require('../assets/money.jpeg'),
-//   require('../assets/serval.jpeg'),
-//   require('../assets/tight.jpeg'),
-//   require('../assets/tree.jpeg')
-// ];
 var images = [
   require('../assets/IMG-0028.jpeg'),
   require('../assets/IMG-0048.jpeg'),
