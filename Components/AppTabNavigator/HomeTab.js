@@ -33,7 +33,7 @@ class HomeTab extends Component {
           value={search}
         />
         <Content>
-          <CardComponent />
+          <CardComponent search={this.state.search} />
         </Content>
       </Container>
     );

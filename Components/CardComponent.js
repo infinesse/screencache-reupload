@@ -25,6 +25,7 @@ var { width, height } = Dimensions.get('window');
 
 class CardComponent extends Component {
   renderHome = () => {
+    console.warn(this.props.search);
     return images.map((image, index) => {
       return (
         <TouchableOpacity onPress={() => console.warn(index)} key={index}>
@@ -49,7 +50,7 @@ class CardComponent extends Component {
   render() {
     return (
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-        {this.renderHome()}
+        {this.renderHome.bind(this)()}
       </View>
     );
   }
