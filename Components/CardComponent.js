@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
+import { BlurView } from 'expo';
 
 var images = [
   require('../assets/IMG-0028.jpeg'),
@@ -33,22 +34,47 @@ class CardComponent extends Component {
       //   .filter(images => search.indexOf(images.index) !== -1)
       //   .map((image, index) => {
       return (
-        <TouchableOpacity onPress={() => console.warn(index)} key={index}>
-          <View
-            key={index}
+        <View
+          style={{
+            width: 500,
+            height: 200,
+            borderWidth: 1,
+            borderRadius: 5,
+            borderColor: 'lavender',
+            backgroundColor: '#69053e'
+          }}
+        >
+          <Text
             style={[
-              { width: width / 3 },
-              { height: height / 3 },
-              { marginBottom: 2 },
-              index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }
+              {
+                color: 'white'
+                // backgroundColor: 'blue'
+              }
             ]}
           >
-            <Image
-              style={{ flex: 1, width: undefined, height: undefined }}
-              source={image}
-            />
-          </View>
-        </TouchableOpacity>
+            Text
+          </Text>
+        </View>
+
+        // <TouchableOpacity onPress={() => console.warn(index)} key={index}>
+        //   <View
+        //     key={index}
+        //     style={[
+        //       { width: width / 3 },
+        //       { height: height / 3 },
+        //       { marginBottom: 2 },
+        //       index % 3 !== 0 ? { paddingLeft: 2 } : { paddingLeft: 0 }
+        //     ]}
+        //   >
+        //     <Image
+        //       style={{ flex: 1, width: undefined, height: undefined }}
+        //       source={image}
+        //     />
+        //     <Text style={[{ color: 'white', flexDirection: 'row' }]}>
+        //       Image Text, there will be a lot of this probably, should be tags
+        //     </Text>
+        //   </View>
+        // </TouchableOpacity>
       );
     });
   };
