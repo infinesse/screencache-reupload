@@ -25,6 +25,11 @@ class HomeTab extends Component {
     return (
       <Container style={styles.container}>
         <SearchBar
+          inputContainerStyle={{
+            backgroundColor: 'dark-grey',
+            borderWidth: 1,
+            borderRadius: 5
+          }}
           containerStyle={{ backgroundColor: 'transparent' }}
           // inputStyle={{ backgroundColor: 'grey' }}
           placeholder="Filter for..."

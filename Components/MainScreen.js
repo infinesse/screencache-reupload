@@ -13,15 +13,15 @@ import SettingsTab from './AppTabNavigator/SettingsTab';
 export default class MainScreen extends Component {
   static navigationOptions = {
     headerStyle: {
-      backgroundColor: 'light-grey'
+      backgroundColor: 'black'
     },
 
-    headerTineColor: 'white',
+    headerTintColor: 'white',
     headerTitleStyle: {
       fontWeight: '300'
     },
     headerLeft: <Icon name="ios-add-circle" style={{ paddingLeft: 10 }} />,
-    title: 'screencache',
+    title: 's c r e e n c a c h e',
     headerRight: <Icon name="ios-settings" style={{ paddingRight: 10 }} />
   };
 
@@ -43,16 +43,17 @@ const AppTabNavigator = createMaterialTopTabNavigator(
   },
   {
     tabBarPosition: 'bottom',
-    backgroundColor: '#f2f2f2',
+    backgroundColor: 'transparent',
 
     tabBarOptions: {
       style: {
         ...Platform.select({
           android: {
-            backgroundColor: 'white'
+            backgroundColor: 'black'
           }
         }),
-        backgroundColor: 'grey'
+        backgroundColor: 'black'
+        // position: 'absolute'
       },
       indicatorStyle: {
         height: 0

@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground
+} from 'react-native';
 import { Icon } from 'native-base';
+import { LinearGradient } from 'expo';
 class UploadTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -9,9 +16,23 @@ class UploadTab extends Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.setTextColor}>Upload Tab</Text>
-      </View>
+      <ImageBackground
+        style={styles.backgroundImage}
+        // source={require('../../assets/IMG-0268.jpeg')}
+      >
+        <View style={styles.container}>
+          <LinearGradient
+            colors={['rgba(0,0,0,0.8)', 'transparent']}
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              height: 15
+            }}
+          />
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -21,11 +42,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'black'
+    justifyContent: 'center'
+    // backgroundColor: 'purple'
   },
   setTextColor: {
     color: 'white'
+  },
+  backgroundImage: {
+    flex: 1,
+    alignContent: 'center',
+    width: null
   }
 });
 

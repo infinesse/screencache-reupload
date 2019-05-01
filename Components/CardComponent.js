@@ -26,7 +26,12 @@ var { width, height } = Dimensions.get('window');
 class CardComponent extends Component {
   renderHome = () => {
     console.warn(this.props.search);
+    var search = this.props.search;
+    // console.log(images);
     return images.map((image, index) => {
+      // return images
+      //   .filter(images => search.indexOf(images.index) !== -1)
+      //   .map((image, index) => {
       return (
         <TouchableOpacity onPress={() => console.warn(index)} key={index}>
           <View
