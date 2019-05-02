@@ -26,7 +26,7 @@ class HomeTab extends Component {
       <Container style={styles.container}>
         <SearchBar
           inputContainerStyle={{
-            backgroundColor: 'dark-grey',
+            backgroundColor: 'transparent',
             borderWidth: 1,
             borderRadius: 5
           }}

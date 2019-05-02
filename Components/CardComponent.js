@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Image, Text, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Dimensions,
+  Image,
+  Text,
+  TouchableOpacity,
+  FlatList
+} from 'react-native';
 import { BlurView } from 'expo';
 
 var images = [
@@ -24,6 +31,32 @@ var images = [
 ];
 var { width, height } = Dimensions.get('window');
 
+// class FlatListItem extends Component {
+//   render() {
+//     return (
+//       <View style={{ flex: 1, backgroundColor: this.props.index % 2 == 0 ? 'mediumseagreen': 'tomato'
+//     }}>
+//     <Text>{this.props.item.name}</Text>
+//     <Text>{this.props.item.foodDescription}</Text>
+//     </View>
+//     );
+//   }
+// }
+// export default class BasicFlatList extends Component {
+//   render() {
+//     return (
+//       <View style={{flex: 1, marginTop: 22}}>
+//       <FlatList data={flatListData}
+//       renderItem={({item, index})=>{
+//         return (
+//           <FlatListItem item={item} index={index}></FlatListItem>
+//         );
+//       }}></FlatList>
+//       </View>
+//     )
+//   }
+// }
+
 class CardComponent extends Component {
   renderHome = () => {
     console.warn(this.props.search);
@@ -34,27 +67,23 @@ class CardComponent extends Component {
       //   .filter(images => search.indexOf(images.index) !== -1)
       //   .map((image, index) => {
       return (
-        <View
-          style={{
-            width: 500,
-            height: 200,
-            borderWidth: 1,
-            borderRadius: 5,
-            borderColor: 'lavender',
-            backgroundColor: '#69053e'
-          }}
-        >
-          <Text
+        <View key={index}>
+          <FlatList
+            key={index}
             style={[
               {
-                color: 'white'
-                // backgroundColor: 'blue'
+                width: width,
+                height: 300,
+                borderWidth: 1,
+                borderRadius: 5,
+                borderColor: 'lavender',
+                backgroundColor: '#420225'
               }
             ]}
-          >
-            Text
-          </Text>
+          />
         </View>
+
+        //touchable opacity x2 inside of a view inside of flatlist? '#69053e'
 
         // <TouchableOpacity onPress={() => console.warn(index)} key={index}>
         //   <View
