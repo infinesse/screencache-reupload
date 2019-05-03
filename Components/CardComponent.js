@@ -29,6 +29,38 @@ var images = [
   require('../assets/IMG-0707.jpeg'),
   require('../assets/IMG-0860.jpeg')
 ];
+var imagesF = [
+  {
+    key: '0028',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+    textContent: 'politics cat homeless healthcare'
+  },
+  {
+    key: '0048',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+    textContent: 'politics cat homeless healthcare'
+  },
+  {
+    key: '0064',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+    textContent: 'politics cat homeless healthcare'
+  },
+  {
+    key: '0089',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+    textContent: 'politics cat homeless healthcare'
+  },
+  {
+    key: '0119',
+    imageUrl:
+      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+    textContent: 'politics cat homeless healthcare'
+  }
+];
 var { width, height } = Dimensions.get('window');
 
 // class FlatListItem extends Component {
@@ -59,8 +91,8 @@ var { width, height } = Dimensions.get('window');
 
 class CardComponent extends Component {
   renderHome = () => {
-    console.warn(this.props.search);
-    var search = this.props.search;
+    // console.warn(this.props.search);
+    // var search = this.props.search;
     // console.log(images);
     return images.map((image, index) => {
       // return images
@@ -81,6 +113,9 @@ class CardComponent extends Component {
               }
             ]}
           />
+          {/* <Text style={{ color: 'white', width: width, letterSpacing: 50   }}>
+            Test
+          </Text> */}
         </View>
 
         //touchable opacity x2 inside of a view inside of flatlist? '#69053e'
