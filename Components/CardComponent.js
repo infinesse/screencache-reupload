@@ -41,7 +41,8 @@ var imagesF = [
     key: '0048',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent: 'politics cat homeless healthcare'
+    textContent:
+      'politics cat homeless healthcare vpolitics cat homeless healthcarepolitics cat homeless healthcarepolitics cat homeless healthcare'
   },
   {
     key: '0064',
@@ -70,14 +71,20 @@ class FlatListItem extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: this.props.index % 2 == 0 ? '#420225' : '#69053e'
+          flexDirection: 'row',
+          borderWidth: 5,
+          borderColor: 'lavender',
+          marginBottom: 5,
+          backgroundColor: '#420225'
         }}
       >
         <Image
           source={{ uri: this.props.item.imageUrl }}
-          style={{ width: 100, height: 100, margin: 5 }}
+          style={{ width: 200, height: 300, margin: 5 }}
         />
-        <Text style={{ color: 'white' }}>{this.props.item.textContent}</Text>
+        <Text style={{ flex: 1, flexWrap: 'wrap', color: 'white' }}>
+          {this.props.item.textContent}
+        </Text>
       </View>
     );
   }
@@ -85,7 +92,7 @@ class FlatListItem extends Component {
 export default class BasicFlatList extends Component {
   render() {
     return (
-      <View style={{ flex: 1, marginTop: 22 }}>
+      <View style={{ flex: 1, borderRadius: 5, borderColor: 'lavender' }}>
         <FlatList
           data={imagesF}
           renderItem={({ item, index }) => {
