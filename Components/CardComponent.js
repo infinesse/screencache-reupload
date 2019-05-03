@@ -34,42 +34,50 @@ var imagesF = [
   {
     key: '0028',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+      'https://lh3.googleusercontent.com/w7EhTeRH1viSCr-8slvbcqP0jz5QsSGfygfOh90ZkcuvkMq_kBjbNIYxettvJoWOCpso7zGw-AMqe4zE01VUKYf3zQ',
     textContent:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      'Antibiotic resistance and the overprescribing of them. I dont think this gets talked about nearly enough and its already a problem. I remember reading an article recently that said in the future antibiotic resistant bacteria related deaths will surpasas cancer deaths.'
   },
   {
     key: '0048',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      'https://lh3.googleusercontent.com/ijJB83f0vkB7ulMn3vVNU0peCyYMfMH5MSRS_oEFIrMEnVvTeEqhQxJ7b3T2YyMRXtuCEyt8dGMz_PUNt6lWsOT2FkI',
+    textContent: 'movie avengers endgame showtimes film theater'
   },
   {
     key: '0064',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+      'https://lh3.googleusercontent.com/g6sAKB8ylhumGEvgIfrafhF8HqV5KlRJb_t9GHIdYLJtlyYA45ZfeTBS4y4eKQ4DvpbytzbCjS3CVr-GNw5R_g1K',
     textContent:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      'This is a hornbill and a dwarf mongoose. They have a symbiotic relationship. When the mongoose forages around it scares bugs out of the grass which are then easiy pickings for the hornbill. In turn the hornbill is an early warning system for predators for the mongoose.'
   },
   {
     key: '0089',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+      'https://lh3.googleusercontent.com/ZgmPvVU0TtuWHCtwtvZRmPQ-5cUYFeZQlrf1DgCADRw38keeqsJrLnstIr0OCoIXk4qsfsw5KnHRZznc_s00Q5Fk',
     textContent:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      'reddit comment automation robots universal-basic-income utopia free market libertarian jobs'
   },
   {
     key: '0119',
     imageUrl:
-      'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
+      'https://lh3.googleusercontent.com/9SG09CZO8mRLjg6HePL9wNIG3ofH8w2vGOR_s1fnhfv5KITGX8eC8NuyK6ovNpa4XWXp3-fMKE5YxcdIZ46tEjD0',
     textContent:
-      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+      'reddit comment antarctica interesting science ancient human disease thaw.'
   }
 ];
 var { width, height } = Dimensions.get('window');
 
 class FlatListItem extends Component {
+  // renderHome = () => {
+  // console.warn(this.props.search);
+  // var search = this.props.search;
+  // console.log(images);
+  // return images.map((image, index) => {
+  // return images
+  //   .filter(images => search.indexOf(images.index) !== -1)
+  //   .map((image, index) => {
+
   render() {
     return (
       <View
@@ -86,7 +94,14 @@ class FlatListItem extends Component {
           source={{ uri: this.props.item.imageUrl }}
           style={{ width: 200, height: 300, margin: 5 }}
         />
-        <Text style={{ flex: 1, flexWrap: 'wrap', color: 'white' }}>
+        <Text
+          style={{
+            fontStyle: 'italic',
+            flex: 1,
+            flexWrap: 'wrap',
+            color: 'white'
+          }}
+        >
           {this.props.item.textContent}
         </Text>
       </View>
