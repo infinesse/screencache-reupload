@@ -35,32 +35,36 @@ var imagesF = [
     key: '0028',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent: 'politics cat homeless healthcare'
+    textContent:
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   },
   {
     key: '0048',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
     textContent:
-      'politics cat homeless healthcare vpolitics cat homeless healthcarepolitics cat homeless healthcarepolitics cat homeless healthcare'
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   },
   {
     key: '0064',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent: 'politics cat homeless healthcare'
+    textContent:
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   },
   {
     key: '0089',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent: 'politics cat homeless healthcare'
+    textContent:
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   },
   {
     key: '0119',
     imageUrl:
       'https://cdn.pixabay.com/photo/2018/10/30/16/06/water-lily-3784022__340.jpg',
-    textContent: 'politics cat homeless healthcare'
+    textContent:
+      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
   }
 ];
 var { width, height } = Dimensions.get('window');
@@ -73,9 +77,9 @@ class FlatListItem extends Component {
           flex: 1,
           flexDirection: 'row',
           borderWidth: 5,
-          borderColor: 'lavender',
+          borderColor: '#2e2e2e',
           marginBottom: 5,
-          backgroundColor: '#420225'
+          backgroundColor: '#1f1f1f'
         }}
       >
         <Image
@@ -92,7 +96,7 @@ class FlatListItem extends Component {
 export default class BasicFlatList extends Component {
   render() {
     return (
-      <View style={{ flex: 1, borderRadius: 5, borderColor: 'lavender' }}>
+      <View style={{ flex: 1 }}>
         <FlatList
           data={imagesF}
           renderItem={({ item, index }) => {
