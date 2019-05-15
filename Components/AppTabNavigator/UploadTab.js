@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  Button,
-  ImageBackground
-} from 'react-native';
+import { View, Dimensions, StyleSheet, Button } from 'react-native';
 import { Icon } from 'native-base';
-import { LinearGradient } from 'expo';
-import ImagePicker from 'react-native-image-picker';
+// import { LinearGradient } from 'expo';
+import { ImagePicker } from 'expo';
+// import * as ImagePicker from 'expo-image-picker';
 
 var { width, height } = Dimensions.get('window');
 class UploadTab extends Component {
@@ -18,14 +12,27 @@ class UploadTab extends Component {
       <Icon name="ios-add-circle" style={{ color: tintColor }} />
     )
   };
+  state = {
+    image: null
+  };
 
-  handleChoosePhoto = () => {
+  _handleChoosePhoto = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true.aspectL[(4, 3)]
+    });
+    console.log(result);
+    if (!result.cancelled) {
+      this.setState({ image: result.uri });
+    }
     const options = {};
     ImagePicker.launchImageLibrary(options, response => {
       console.log('response', response);
     });
+    // console.log(ImagePicker);
   };
   render() {
+    let { image } = this.state;
+
     return (
       <View
         style={{
@@ -37,7 +44,10 @@ class UploadTab extends Component {
           height: height
         }}
       >
-        <Button title="Choose Photo" onPress={this.handleChoosePhoto} />
+        <Button title="Choose Photo" onPress={this._handleChoosePhoto} />
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        )}
       </View>
     );
   }
