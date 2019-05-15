@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   FlatList
 } from 'react-native';
-import { BlurView } from 'expo';
-import { Row } from 'native-base';
+// import { BlurView } from 'expo';
+// import { Row } from 'native-base';
 
 var images = [
   require('../assets/IMG-0028.jpeg'),
@@ -72,7 +72,7 @@ class FlatListItem extends Component {
   // renderHome = () => {
   // console.warn(this.props.search);
   // var search = this.props.search;
-  // console.log(images);
+  // console.log(images)
   // return images.map((image, index) => {
   // return images
   //   .filter(images => search.indexOf(images.index) !== -1)
@@ -90,20 +90,25 @@ class FlatListItem extends Component {
           backgroundColor: '#1f1f1f'
         }}
       >
-        <Image
-          source={{ uri: this.props.item.imageUrl }}
-          style={{ width: 200, height: 300, margin: 5 }}
-        />
-        <Text
-          style={{
-            fontStyle: 'italic',
-            flex: 1,
-            flexWrap: 'wrap',
-            color: 'white'
-          }}
-        >
-          {this.props.item.textContent}
-        </Text>
+        <TouchableOpacity onPress={this.zoomView}>
+          <Image
+            source={{ uri: this.props.item.imageUrl }}
+            style={{ width: 200, height: 300, margin: 5 }}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={{ flex: 1, flexWrap: 'wrap' }}>
+          <Text
+            style={{
+              fontStyle: 'italic',
+              flex: 1,
+              flexWrap: 'wrap',
+              color: 'white'
+            }}
+          >
+            {this.props.item.textContent}
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

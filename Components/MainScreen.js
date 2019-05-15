@@ -8,7 +8,7 @@ import {
 } from 'react-navigation';
 import HomeTab from './AppTabNavigator/HomeTab';
 import UploadTab from './AppTabNavigator/UploadTab';
-import SettingsTab from './AppTabNavigator/SettingsTab';
+// import SettingsTab from './AppTabNavigator/SettingsTab';
 
 export default class MainScreen extends Component {
   static navigationOptions = {
@@ -36,10 +36,10 @@ const AppTabNavigator = createMaterialTopTabNavigator(
     },
     UploadTab: {
       screen: UploadTab
-    },
-    SettingsTab: {
-      screen: SettingsTab
     }
+    // SettingsTab: {
+    //   screen: SettingsTab
+    // }
   },
   {
     tabBarPosition: 'bottom',
