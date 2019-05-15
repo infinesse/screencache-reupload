@@ -4,11 +4,12 @@ import {
   Text,
   Dimensions,
   StyleSheet,
-  TouchableOpacity,
+  Button,
   ImageBackground
 } from 'react-native';
 import { Icon } from 'native-base';
 import { LinearGradient } from 'expo';
+import ImagePicker from 'react-native-image-picker';
 
 var { width, height } = Dimensions.get('window');
 class UploadTab extends Component {
@@ -17,17 +18,27 @@ class UploadTab extends Component {
       <Icon name="ios-add-circle" style={{ color: tintColor }} />
     )
   };
+
+  handleChoosePhoto = () => {
+    const options = {};
+    ImagePicker.launchImageLibrary(options, response => {
+      console.log('response', response);
+    });
+  };
   render() {
     return (
-      <View
-        style={{
-          width: width / 3,
-          height: height / 3,
-          backgroundColor: 'black'
-        }}
-      >
-        <Text style={{ color: 'white' }}>Text</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button title="Choose Photo" onPress={this.handleChoosePhoto} />
       </View>
+      // <View
+      //   style={{
+      //     width: width / 3,
+      //     height: height / 3,
+      //     backgroundColor: 'black'
+      //   }}
+      // >
+      //   <Text style={{ color: 'white' }}>Text</Text>
+      // </View>
 
       // <ImageBackground
       //   style={styles.backgroundImage}
