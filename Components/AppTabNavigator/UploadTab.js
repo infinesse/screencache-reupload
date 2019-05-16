@@ -15,7 +15,18 @@ class UploadTab extends Component {
   state = {
     image: null
   };
-
+  _getCameraRollAsync = async () => {
+    const { Permissions } = Expo;
+    // permissions returns only for location permissions on iOS and under certain conditions, see Permissions.LOCATION
+    const { status, permissions } = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL
+    );
+    if (status === 'granted') {
+      return Location.getCurrentPositionAsync({ enableHighAccuracy: true });
+    } else {
+      throw new Error('Location permission not granted');
+    }
+  };
   _handleChoosePhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
@@ -45,7 +56,7 @@ class UploadTab extends Component {
           height: height
         }}
       >
-        <Button title="Choose Photo" onPress={this._handleChoosePhoto} />
+        <Button title="Choose Photo" onPress={this._getCameraRollAsync} />
         {image && (
           <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
         )}

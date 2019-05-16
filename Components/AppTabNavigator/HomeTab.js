@@ -125,16 +125,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'black'
   }
 });
-
-/*
-search array bits found @ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find?fbclid=IwAR2CLk5cl82y1AYMLtTtOZs12dc9Ue5I_iuHQwwtuuxr8oTouMh2Oz6wZnc
-
-var array1 = [5, 12, 8, 130, 44];
-
-var found = array1.find(function(element) {
-  return element > 10;
-});
-
-console.log(found); 
-
-*/
