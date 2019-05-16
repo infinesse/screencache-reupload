@@ -18,7 +18,7 @@ class HomeTab extends Component {
 
   updateSearch = search => {
     this.setState({
-      ...state,
+      ...this.state,
       search
     });
   };
