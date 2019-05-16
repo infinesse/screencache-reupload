@@ -8,65 +8,6 @@ import {
   TouchableOpacity,
   FlatList
 } from 'react-native';
-// import { BlurView } from 'expo';
-// import { Row } from 'native-base';
-
-var images = [
-  require('../assets/IMG-0028.jpeg'),
-  require('../assets/IMG-0048.jpeg'),
-  require('../assets/IMG-0064.jpeg'),
-  require('../assets/IMG-0089.jpeg'),
-  require('../assets/IMG-0119.jpeg'),
-  require('../assets/IMG-0151.jpeg'),
-  require('../assets/IMG-0152.jpeg'),
-  require('../assets/IMG-0153.jpeg'),
-  require('../assets/IMG-0154.jpeg'),
-  require('../assets/IMG-0155.jpeg'),
-  require('../assets/IMG-0184.jpeg'),
-  require('../assets/IMG-0221.jpeg'),
-  require('../assets/IMG-0268.jpeg'),
-  require('../assets/IMG-0309.jpeg'),
-  require('../assets/IMG-0320.jpeg'),
-  require('../assets/IMG-0474.jpeg'),
-  require('../assets/IMG-0707.jpeg'),
-  require('../assets/IMG-0860.jpeg')
-];
-var imagesF = [
-  {
-    key: '0028',
-    imageUrl:
-      'https://lh3.googleusercontent.com/w7EhTeRH1viSCr-8slvbcqP0jz5QsSGfygfOh90ZkcuvkMq_kBjbNIYxettvJoWOCpso7zGw-AMqe4zE01VUKYf3zQ',
-    textContent:
-      'Antibiotic resistance and the overprescribing of them. I dont think this gets talked about nearly enough and its already a problem. I remember reading an article recently that said in the future antibiotic resistant bacteria related deaths will surpasas cancer deaths.'
-  },
-  {
-    key: '0048',
-    imageUrl:
-      'https://lh3.googleusercontent.com/ijJB83f0vkB7ulMn3vVNU0peCyYMfMH5MSRS_oEFIrMEnVvTeEqhQxJ7b3T2YyMRXtuCEyt8dGMz_PUNt6lWsOT2FkI',
-    textContent: 'movie avengers endgame showtimes film theater'
-  },
-  {
-    key: '0064',
-    imageUrl:
-      'https://lh3.googleusercontent.com/g6sAKB8ylhumGEvgIfrafhF8HqV5KlRJb_t9GHIdYLJtlyYA45ZfeTBS4y4eKQ4DvpbytzbCjS3CVr-GNw5R_g1K',
-    textContent:
-      'This is a hornbill and a dwarf mongoose. They have a symbiotic relationship. When the mongoose forages around it scares bugs out of the grass which are then easiy pickings for the hornbill. In turn the hornbill is an early warning system for predators for the mongoose.'
-  },
-  {
-    key: '0089',
-    imageUrl:
-      'https://lh3.googleusercontent.com/ZgmPvVU0TtuWHCtwtvZRmPQ-5cUYFeZQlrf1DgCADRw38keeqsJrLnstIr0OCoIXk4qsfsw5KnHRZznc_s00Q5Fk',
-    textContent:
-      'reddit comment automation robots universal-basic-income utopia free market libertarian jobs'
-  },
-  {
-    key: '0119',
-    imageUrl:
-      'https://lh3.googleusercontent.com/9SG09CZO8mRLjg6HePL9wNIG3ofH8w2vGOR_s1fnhfv5KITGX8eC8NuyK6ovNpa4XWXp3-fMKE5YxcdIZ46tEjD0',
-    textContent:
-      'reddit comment antarctica interesting science ancient human disease thaw.'
-  }
-];
 
 const TEXT_STYLE = {
   fontStyle: 'italic',
@@ -79,7 +20,13 @@ var { width, height } = Dimensions.get('window');
 
 class FlatListItem extends Component {
   render() {
-    const { item, isEditing, beginEditItem, endEditItem } = this.props;
+    const {
+      item,
+      isEditing,
+      beginEditItem,
+      endEditItem,
+      editItem
+    } = this.props;
 
     return (
       <View
@@ -103,8 +50,9 @@ class FlatListItem extends Component {
           {isEditing ? (
             <TextInput
               style={TEXT_STYLE}
-              onChangeText={text => this.setState({ text })}
               value={item.textContent}
+              onChangeText={newText => editItem(item.key, newText)}
+              onSubmitEditing={endEditItem}
               multiline
             />
           ) : (
@@ -119,15 +67,22 @@ class FlatListItem extends Component {
 }
 export default class BasicFlatList extends Component {
   render() {
-    const { search, editingItem, beginEditItem, endEditItem } = this.props;
+    const {
+      items,
+      search,
+      editingItem,
+      beginEditItem,
+      endEditItem,
+      editItem
+    } = this.props;
 
     const pattern = new RegExp(search, 'i');
 
     return (
       <View style={{ flex: 1 }}>
         <FlatList
-          data={imagesF.filter(
-            item => !search || item.textContent.search(pattern) !== -1
+          data={items.filter(
+            item => !search || (item.textContent || '').search(pattern) !== -1
           )}
           renderItem={({ item, index }) => {
             return (
@@ -137,6 +92,7 @@ export default class BasicFlatList extends Component {
                 isEditing={editingItem === item.key}
                 beginEditItem={beginEditItem}
                 endEditItem={endEditItem}
+                editItem={editItem}
               />
             );
           }}
