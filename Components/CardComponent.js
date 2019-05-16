@@ -4,6 +4,7 @@ import {
   Dimensions,
   Image,
   Text,
+  TextInput,
   TouchableOpacity,
   FlatList
 } from 'react-native';
@@ -66,19 +67,20 @@ var imagesF = [
       'reddit comment antarctica interesting science ancient human disease thaw.'
   }
 ];
+
+const TEXT_STYLE = {
+  fontStyle: 'italic',
+  flex: 1,
+  flexWrap: 'wrap',
+  color: 'white'
+};
+
 var { width, height } = Dimensions.get('window');
 
 class FlatListItem extends Component {
-  // renderHome = () => {
-  // console.warn(this.props.search);
-  // var search = this.props.search;
-  // console.log(images)
-  // return images.map((image, index) => {
-  // return images
-  //   .filter(images => search.indexOf(images.index) !== -1)
-  //   .map((image, index) => {
-
   render() {
+    const { item, isEditing, beginEditItem, endEditItem } = this.props;
+
     return (
       <View
         style={{
@@ -92,22 +94,24 @@ class FlatListItem extends Component {
       >
         <TouchableOpacity onPress={this.zoomView}>
           <Image
-            source={{ uri: this.props.item.imageUrl }}
+            source={{ uri: item.imageUrl }}
             style={{ width: 200, height: 300, margin: 5 }}
           />
         </TouchableOpacity>
 
         <TouchableOpacity style={{ flex: 1, flexWrap: 'wrap' }}>
-          <Text
-            style={{
-              fontStyle: 'italic',
-              flex: 1,
-              flexWrap: 'wrap',
-              color: 'white'
-            }}
-          >
-            {this.props.item.textContent}
-          </Text>
+          {isEditing ? (
+            <TextInput
+              style={TEXT_STYLE}
+              onChangeText={text => this.setState({ text })}
+              value={item.textContent}
+              multiline
+            />
+          ) : (
+            <Text style={TEXT_STYLE} onPress={() => beginEditItem(item.key)}>
+              {item.textContent}
+            </Text>
+          )}
         </TouchableOpacity>
       </View>
     );
@@ -115,8 +119,10 @@ class FlatListItem extends Component {
 }
 export default class BasicFlatList extends Component {
   render() {
-    const { search } = this.props;
+    const { search, editingItem, beginEditItem, endEditItem } = this.props;
+
     const pattern = new RegExp(search, 'i');
+
     return (
       <View style={{ flex: 1 }}>
         <FlatList
@@ -124,7 +130,15 @@ export default class BasicFlatList extends Component {
             item => !search || item.textContent.search(pattern) !== -1
           )}
           renderItem={({ item, index }) => {
-            return <FlatListItem item={item} index={index} />;
+            return (
+              <FlatListItem
+                item={item}
+                index={index}
+                isEditing={editingItem === item.key}
+                beginEditItem={beginEditItem}
+                endEditItem={endEditItem}
+              />
+            );
           }}
         />
       </View>

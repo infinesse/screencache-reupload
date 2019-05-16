@@ -57,7 +57,9 @@ class HomeTab extends Component {
           <CardComponent
             {...{
               search,
-              editingItem
+              editingItem,
+              beginEditItem: this.beginEditItem,
+              endEditItem: this.endEditItem
             }}
           />
         </Content>
