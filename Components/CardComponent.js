@@ -115,10 +115,14 @@ class FlatListItem extends Component {
 }
 export default class BasicFlatList extends Component {
   render() {
+    const { search } = this.props;
+    const pattern = new RegExp(search, 'i');
     return (
       <View style={{ flex: 1 }}>
         <FlatList
-          data={imagesF}
+          data={imagesF.filter(
+            item => !search || item.textContent.search(pattern) !== -1
+          )}
           renderItem={({ item, index }) => {
             return <FlatListItem item={item} index={index} />;
           }}

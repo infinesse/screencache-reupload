@@ -12,15 +12,31 @@ class HomeTab extends Component {
   };
 
   state = {
-    search: ''
-  };
-  updateSearch = search => {
-    this.setState({ search });
-    console.warn(search);
+    search: '',
+    editingItem: null
   };
 
+  updateSearch = search => {
+    this.setState({
+      ...state,
+      search
+    });
+  };
+
+  beginEditItem = editingItem =>
+    this.setState({
+      ...this.state,
+      editingItem
+    });
+
+  endEditItem = () =>
+    this.setState({
+      ...this.state,
+      editingItem: null
+    });
+
   render() {
-    const { search } = this.state;
+    const { search, editingItem } = this.state;
 
     return (
       <Container style={styles.container}>
@@ -38,7 +54,12 @@ class HomeTab extends Component {
           value={search}
         />
         <Content>
-          <CardComponent search={this.state.search} />
+          <CardComponent
+            {...{
+              search,
+              editingItem
+            }}
+          />
         </Content>
       </Container>
     );
