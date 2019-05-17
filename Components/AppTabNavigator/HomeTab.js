@@ -4,6 +4,7 @@ import { Container, Content, Icon } from 'native-base';
 import CardComponent from '../CardComponent';
 import { SearchBar } from 'react-native-elements';
 
+//NOTE: mock data and search and filter displayed
 const serverData = [
   {
     key: '0028',

@@ -10,6 +10,8 @@ import HomeTab from './AppTabNavigator/HomeTab';
 import UploadTab from './AppTabNavigator/UploadTab';
 // import SettingsTab from './AppTabNavigator/SettingsTab';
 
+//NOTE: Literally just navigation. TopBar oriented bottom.
+
 export default class MainScreen extends Component {
   static navigationOptions = {
     headerStyle: {
