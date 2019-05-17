@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
-import CardComponent from '../CardComponent';
+import FilterTab from '../FilterTab';
 import { SearchBar } from 'react-native-elements';
 
 //NOTE: mock data and search and filter displayed
@@ -42,7 +42,7 @@ const serverData = [
   }
 ];
 
-class HomeTab extends Component {
+class DataSearch extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
       <Icon name="ios-search" style={{ color: tintColor }} />
@@ -103,7 +103,7 @@ class HomeTab extends Component {
           value={search}
         />
         <Content>
-          <CardComponent
+          <FilterTab
             {...{
               items,
               search,
@@ -118,7 +118,7 @@ class HomeTab extends Component {
     );
   }
 }
-export default HomeTab;
+export default DataSearch;
 
 const styles = StyleSheet.create({
   container: {

@@ -6,13 +6,13 @@ import {
   createMaterialTopTabNavigator,
   createAppContainer
 } from 'react-navigation';
-import HomeTab from './AppTabNavigator/HomeTab';
+import DataSearch from './AppTabNavigator/DataSearch';
 import UploadTab from './AppTabNavigator/UploadTab';
 // import SettingsTab from './AppTabNavigator/SettingsTab';
 
 //NOTE: Literally just navigation. TopBar oriented bottom.
 
-export default class MainScreen extends Component {
+export default class NavigationTitle extends Component {
   static navigationOptions = {
     headerStyle: {
       backgroundColor: 'black'
@@ -34,7 +34,7 @@ export default class MainScreen extends Component {
 const AppTabNavigator = createMaterialTopTabNavigator(
   {
     HomeTab: {
-      screen: HomeTab
+      screen: DataSearch
     },
     UploadTab: {
       screen: UploadTab

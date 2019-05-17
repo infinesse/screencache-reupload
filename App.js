@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import MainScreen from './Components/MainScreen';
+import NavigationTitle from './Components/NavigationTitle';
 
 export default class App extends React.Component {
   render() {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
 }
 const MainStackNavigator = createStackNavigator({
   Main: {
-    screen: MainScreen
+    screen: NavigationTitle
   }
 });
 const AppRun = createAppContainer(MainStackNavigator);
