@@ -9,7 +9,10 @@ var { width, height } = Dimensions.get('window');
 class UploadTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
-      <Icon name="ios-add-circle" style={{ color: tintColor }} />
+      <Icon
+        name="ios-add-circle"
+        style={{ color: tintColor, paddingBottom: 30 }}
+      />
     )
   };
   state = {
