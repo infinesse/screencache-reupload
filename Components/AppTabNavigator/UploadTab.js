@@ -11,7 +11,13 @@ class UploadTab extends Component {
     tabBarIcon: ({ tintColor }) => (
       <Icon
         name="md-archive"
-        style={{ color: tintColor, paddingBottom: 30, paddingLeft: 60 }}
+        style={{
+          color: tintColor,
+          paddingBottom: 30,
+          paddingLeft: 125,
+
+          width: 200
+        }}
       />
     )
   };
@@ -68,22 +74,5 @@ class UploadTab extends Component {
   }
 }
 export default UploadTab;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-    // backgroundColor: 'purple'
-  },
-  setTextColor: {
-    color: 'white'
-  },
-  backgroundImage: {
-    flex: 1,
-    alignContent: 'center',
-    width: null
-  }
-});
 
 // https://www.youtube.com/watch?v=Gq8udJJ724Y
