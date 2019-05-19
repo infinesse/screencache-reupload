@@ -8,9 +8,10 @@ import {
   TouchableOpacity,
   FlatList
 } from 'react-native';
-
 const TEXT_STYLE = {
-  fontStyle: 'italic',
+  // fontStyle: 'italic',
+  // fontFamily: 'OpenSans-Bold',
+
   flex: 1,
   flexWrap: 'wrap',
   color: 'white'
@@ -19,6 +20,11 @@ const TEXT_STYLE = {
 var { width, height } = Dimensions.get('window');
 
 class FlatListItem extends Component {
+  // componentDidMount() {
+  //   Font.loadAsync({
+  //     'open-sans-bold': require('./assets/OpenSans-Bold.ttf')
+  //   });
+  // }
   render() {
     const {
       item,

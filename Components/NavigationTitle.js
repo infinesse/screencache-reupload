@@ -20,11 +20,16 @@ export default class NavigationTitle extends Component {
 
     headerTintColor: 'white',
     headerTitleStyle: {
-      fontWeight: '300'
+      fontWeight: '300',
+      color: 'white'
     },
-    headerLeft: <Icon name="ios-add-circle" style={{ paddingLeft: 10 }} />,
+    headerLeft: (
+      <Icon name="ios-contact" style={{ color: 'white', paddingLeft: 10 }} />
+    ),
     title: 's c r e e n c a c h e',
-    headerRight: <Icon name="ios-settings" style={{ paddingRight: 10 }} />
+    headerRight: (
+      <Icon name="ios-contacts" style={{ color: 'white', paddingRight: 10 }} />
+    )
   };
 
   render() {

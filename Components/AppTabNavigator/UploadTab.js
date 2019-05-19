@@ -10,8 +10,8 @@ class UploadTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
       <Icon
-        name="ios-add-circle"
-        style={{ color: tintColor, paddingBottom: 30 }}
+        name="md-archive"
+        style={{ color: tintColor, paddingBottom: 30, paddingLeft: 60 }}
       />
     )
   };

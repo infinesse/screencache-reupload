@@ -45,7 +45,10 @@ const serverData = [
 class DataSearch extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
-      <Icon name="ios-search" style={{ color: tintColor, paddingBottom: 30 }} />
+      <Icon
+        name="ios-filing"
+        style={{ color: tintColor, paddingBottom: 30, paddingRight: 100 }}
+      />
     )
   };
 
