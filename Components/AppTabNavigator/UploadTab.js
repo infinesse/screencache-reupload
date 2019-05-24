@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Dimensions, StyleSheet, Button } from 'react-native';
+import { View, Dimensions, StyleSheet, Button, Image } from 'react-native';
 import { Icon } from 'native-base';
 // import { LinearGradient } from 'expo';
 import { ImagePicker } from 'expo';
-// import * as ImagePicker from 'expo-image-picker';
 
 var { width, height } = Dimensions.get('window');
+
 class UploadTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -22,37 +22,29 @@ class UploadTab extends Component {
     )
   };
   state = {
-    image: null
+    imageUri: null,
+    imageWidth: null,
+    imageHeight: null
   };
-  _getCameraRollAsync = async () => {
-    const { Permissions } = Expo;
-    // permissions returns only for location permissions on iOS and under certain conditions, see Permissions.LOCATION
-    const { status, permissions } = await Permissions.askAsync(
-      Permissions.CAMERA_ROLL
-    );
-    if (status === 'granted') {
-      return Location.getCurrentPositionAsync({ enableHighAccuracy: true });
-    } else {
-      throw new Error('Location permission not granted');
-    }
-  };
-  _handleChoosePhoto = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      aspect: [4, 3]
-    });
+
+  _pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync();
+
     console.log(result);
+
     if (!result.cancelled) {
-      this.setState({ image: result.uri });
+      this.setState({
+        imageUri: result.uri,
+        imageWidth: result.width,
+        imageHeight: result.height
+      });
     }
-    const options = {};
-    ImagePicker.launchImageLibrary(options, response => {
-      console.log('response', response);
-    });
-    // console.log(ImagePicker);
   };
+
+  _uploadImage() {}
+
   render() {
-    let { image } = this.state;
+    let { imageUri, imageWidth, imageHeight } = this.state;
 
     return (
       <View
@@ -65,10 +57,17 @@ class UploadTab extends Component {
           height: height
         }}
       >
-        <Button title="Choose Photo" onPress={this._getCameraRollAsync} />
-        {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        <Button title="Choose Photo" onPress={this._pickImage} />
+
+        {imageUri && (
+          <Image
+            source={{ uri: imageUri }}
+            style={{ width: width - 100, height: height - 400 }}
+            resizeMode={'contain'}
+          />
         )}
+
+        <Button title="Upload" onPress={this._uploadImage} />
       </View>
     );
   }
