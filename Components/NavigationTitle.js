@@ -55,7 +55,7 @@ export default class NavigationTitle extends Component {
   });
 
   render() {
-    return <AppTabContainer />;
+    return <AppTabContainer screenProps={this.props.screenProps} />;
   }
 }
 const AppTabNavigator = createMaterialTopTabNavigator(
