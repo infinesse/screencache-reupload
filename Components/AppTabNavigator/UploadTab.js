@@ -41,10 +41,9 @@ class UploadTab extends Component {
     }
   };
 
-  _uploadImage() {}
-
   render() {
-    let { imageUri, imageWidth, imageHeight } = this.state;
+    const { imageUri, imageWidth, imageHeight } = this.state;
+    const { addItem } = this.props.screenProps;
 
     return (
       <View
@@ -67,7 +66,12 @@ class UploadTab extends Component {
           />
         )}
 
-        <Button title="Upload" onPress={this._uploadImage} />
+        <Button
+          title="Upload"
+          onPress={() => {
+            addItem('new item', imageUri);
+          }}
+        />
       </View>
     );
   }
