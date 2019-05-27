@@ -7,6 +7,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "buffer": "^5.2.1",
     "expo": "^32.0.0",
     "material-design-icons": "^3.0.1",
     "native-base": "^2.12.1",
@@ -14,6 +15,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-elements": "^1.1.0",
     "react-native-image-picker": "^0.28.1",
+    "react-native-uuid": "^1.4.9",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.5.1"
   },

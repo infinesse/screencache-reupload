@@ -45,7 +45,11 @@ class FlatListItem extends Component {
           backgroundColor: '#1f1f1f'
         }}
       >
-        <TouchableOpacity onPress={this.zoomView}>
+        <TouchableOpacity
+        // onPress={console.warn(
+        //   'this is the key of the image pressed ' + item.key
+        // )}
+        >
           <Image
             source={{ uri: item.imageUrl }}
             style={{ width: 200, height: 300, margin: 5 }}
