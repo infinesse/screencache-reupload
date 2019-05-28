@@ -6,6 +6,12 @@ import { ImagePicker } from 'expo';
 
 var { width, height } = Dimensions.get('window');
 
+const initialState = {
+  imageUri: null,
+  imageWidth: null,
+  imageHeight: null
+};
+
 class UploadTab extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
@@ -13,19 +19,15 @@ class UploadTab extends Component {
         name="md-archive"
         style={{
           color: tintColor,
-          paddingBottom: 30,
-          paddingLeft: 125,
+          paddingBottom: 30
+          /*paddingLeft: 175
 
-          width: 200
+          width: 200*/
         }}
       />
     )
   };
-  state = {
-    imageUri: null,
-    imageWidth: null,
-    imageHeight: null
-  };
+  state = initialState;
 
   _pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync();
@@ -66,12 +68,16 @@ class UploadTab extends Component {
           />
         )}
 
-        <Button
-          title="Upload"
-          onPress={() => {
-            addItem('new item', imageUri);
-          }}
-        />
+        {imageUri && (
+          <Button
+            title="Upload"
+            onPress={() => {
+              addItem('new item', imageUri);
+              this.setState(initialState);
+              this.props.navigation.goBack();
+            }}
+          />
+        )}
       </View>
     );
   }

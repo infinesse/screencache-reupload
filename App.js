@@ -83,16 +83,17 @@ export default class App extends React.Component {
   };
 
   addItem = (textContent, imageUrl) => {
+    const newItemId = uuid.v1();
     this.setState({
       ...this.state,
-      // nextItemId: this.state.nextItemId + 1,
-      items: this.state.items.concat([
+      editingItem: newItemId,
+      items: [
         {
-          key: uuid.v1(), //this.state.nextItemId.toString(),
+          key: newItemId,
           imageUrl,
           textContent
         }
-      ])
+      ].concat(this.state.items)
     });
   };
 

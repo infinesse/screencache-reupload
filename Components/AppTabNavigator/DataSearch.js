@@ -9,7 +9,7 @@ class DataSearch extends Component {
     tabBarIcon: ({ tintColor }) => (
       <Icon
         name="ios-filing"
-        style={{ color: tintColor, paddingBottom: 30, paddingRight: 100 }}
+        style={{ color: tintColor, paddingBottom: 30 /* paddingRight: 100*/ }}
       />
     )
   };

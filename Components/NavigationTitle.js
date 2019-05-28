@@ -71,7 +71,9 @@ const AppTabNavigator = createMaterialTopTabNavigator(
     tabBarPosition: 'bottom',
 
     tabBarOptions: {
+      tabStyle: {},
       style: {
+        display: 'flex',
         ...Platform.select({
           android: {}
         }),
