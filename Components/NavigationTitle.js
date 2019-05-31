@@ -55,6 +55,10 @@ export default class NavigationTitle extends Component {
   });
 
   render() {
+    // console.warn(
+    //   'navigationtitle.js this.props.screenProps = ',
+    //   this.props.screenProps
+    // );
     return <AppTabContainer screenProps={this.props.screenProps} />;
   }
 }

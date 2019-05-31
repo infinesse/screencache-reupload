@@ -20,12 +20,15 @@ class DataSearch extends Component {
       items,
       search,
       editingItem,
+      unlockedLock,
 
       // App props
       updateSearch,
       beginEditItem,
       endEditItem,
-      editItem
+      editItem,
+      unlockLock,
+      lockLock
     } = this.props.screenProps;
 
     return (
@@ -51,7 +54,10 @@ class DataSearch extends Component {
               editingItem,
               beginEditItem,
               endEditItem,
-              editItem
+              editItem,
+              unlockedLock,
+              unlockLock,
+              lockLock
             }}
           />
         </Content>

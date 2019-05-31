@@ -47,11 +47,25 @@ const initialState = {
   items: serverData,
   search: '',
   editingItem: null,
-  nextItemId: 100
+  nextItemId: 100,
+  unlockedLock: false
+  // isTrashable: false
 };
 
 export default class App extends React.Component {
   state = initialState;
+
+  unlockLock = () =>
+    this.setState({
+      ...this.state,
+      unlockedLock: true
+    });
+
+  lockLock = () =>
+    this.setState({
+      ...this.state,
+      unlockedLock: false
+    });
 
   updateSearch = search => {
     this.setState({
@@ -106,7 +120,9 @@ export default class App extends React.Component {
           beginEditItem: this.beginEditItem,
           endEditItem: this.endEditItem,
           editItem: this.editItem,
-          addItem: this.addItem
+          addItem: this.addItem,
+          unlockLock: this.unlockLock,
+          lockLock: this.lockLock
         }}
       />
     );

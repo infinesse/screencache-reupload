@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   FlatList
 } from 'react-native';
+import { Icon } from 'native-base';
 const TEXT_STYLE = {
   // fontStyle: 'italic',
   // fontFamily: 'OpenSans-Bold',
@@ -25,13 +26,17 @@ class FlatListItem extends Component {
   //     'open-sans-bold': require('./assets/OpenSans-Bold.ttf')
   //   });
   // }
+
   render() {
     const {
       item,
       isEditing,
       beginEditItem,
       endEditItem,
-      editItem
+      editItem,
+      unlockedLock,
+      unlockLock,
+      lockLock
     } = this.props;
 
     return (
@@ -46,9 +51,12 @@ class FlatListItem extends Component {
         }}
       >
         <TouchableOpacity
-        // onPress={console.warn(
-        //   'this is the key of the image pressed ' + item.key
-        // )}
+          onPress={() => {
+            console.warn('image pressed');
+          }}
+          // onPress={console.warn(
+          //   'this is the key of the image pressed ' + item.key
+          // )}
         >
           <Image
             source={{ uri: item.imageUrl }}
@@ -70,6 +78,30 @@ class FlatListItem extends Component {
               {item.textContent}
             </Text>
           )}
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              alignItems: 'bottom'
+            }}
+          >
+            {/* <View style={{ flex: 1, flexDirection: 'row' }}> */}
+            {unlockedLock ? (
+              <Icon
+                name="md-unlock"
+                style={{ color: '#d1cece' }}
+                onPress={() => lockLock()}
+              />
+            ) : (
+              <Icon
+                name="md-lock"
+                style={{ color: 'white' }}
+                onPress={() => unlockLock()}
+              />
+            )}
+            <Icon name="md-trash" style={{ color: 'red' }} />
+          </View>
+          {/* </View> */}
         </TouchableOpacity>
       </View>
     );
@@ -83,9 +115,12 @@ export default class BasicFlatList extends Component {
       editingItem,
       beginEditItem,
       endEditItem,
-      editItem
+      editItem,
+      unlockedLock,
+      unlockLock,
+      lockLock
     } = this.props;
-
+    console.warn(this.props.lockLock);
     const pattern = new RegExp(search, 'i');
 
     return (
@@ -103,6 +138,9 @@ export default class BasicFlatList extends Component {
                 beginEditItem={beginEditItem}
                 endEditItem={endEditItem}
                 editItem={editItem}
+                unlockedLock={unlockedLock}
+                unlockLock={unlockLock}
+                lockLock={lockLock}
               />
             );
           }}
