@@ -36,7 +36,8 @@ class FlatListItem extends Component {
       editItem,
       unlockedLock,
       unlockLock,
-      lockLock
+      lockLock,
+      trashCanDisplayed
     } = this.props;
 
     return (
@@ -90,16 +91,22 @@ class FlatListItem extends Component {
               <Icon
                 name="md-unlock"
                 style={{ color: '#d1cece' }}
-                onPress={() => lockLock()}
+                onPress={() => {
+                  lockLock();
+                }}
               />
             ) : (
               <Icon
                 name="md-lock"
                 style={{ color: 'white' }}
-                onPress={() => unlockLock()}
+                onPress={() => {
+                  unlockLock();
+                }}
               />
             )}
-            <Icon name="md-trash" style={{ color: 'red' }} />
+            {unlockedLock ? (
+              <Icon name="md-trash" style={{ margin: 15, color: 'red' }} />
+            ) : null}
           </View>
           {/* </View> */}
         </TouchableOpacity>
@@ -118,9 +125,10 @@ export default class BasicFlatList extends Component {
       editItem,
       unlockedLock,
       unlockLock,
-      lockLock
+      lockLock,
+      trashCanDisplayed
     } = this.props;
-    console.warn(this.props.lockLock);
+    // console.warn(this.props.lockLock);
     const pattern = new RegExp(search, 'i');
 
     return (
@@ -141,6 +149,7 @@ export default class BasicFlatList extends Component {
                 unlockedLock={unlockedLock}
                 unlockLock={unlockLock}
                 lockLock={lockLock}
+                trashCanDisplayed={trashCanDisplayed}
               />
             );
           }}

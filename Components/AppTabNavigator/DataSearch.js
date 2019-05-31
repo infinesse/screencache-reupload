@@ -21,6 +21,7 @@ class DataSearch extends Component {
       search,
       editingItem,
       unlockedLock,
+      trashCanDisplayed,
 
       // App props
       updateSearch,
@@ -57,7 +58,8 @@ class DataSearch extends Component {
               editItem,
               unlockedLock,
               unlockLock,
-              lockLock
+              lockLock,
+              trashCanDisplayed
             }}
           />
         </Content>

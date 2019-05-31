@@ -32,8 +32,6 @@ class UploadTab extends Component {
   _pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync();
 
-    console.log(result);
-
     if (!result.cancelled) {
       this.setState({
         imageUri: result.uri,

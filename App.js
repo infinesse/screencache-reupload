@@ -48,8 +48,8 @@ const initialState = {
   search: '',
   editingItem: null,
   nextItemId: 100,
-  unlockedLock: false
-  // isTrashable: false
+  unlockedLock: false,
+  trashCanDisplayed: false
 };
 
 export default class App extends React.Component {
@@ -58,13 +58,15 @@ export default class App extends React.Component {
   unlockLock = () =>
     this.setState({
       ...this.state,
-      unlockedLock: true
+      unlockedLock: true,
+      trashCanDisplayed: true
     });
 
   lockLock = () =>
     this.setState({
       ...this.state,
-      unlockedLock: false
+      unlockedLock: false,
+      trashCanDisplayed: false
     });
 
   updateSearch = search => {
@@ -122,7 +124,8 @@ export default class App extends React.Component {
           editItem: this.editItem,
           addItem: this.addItem,
           unlockLock: this.unlockLock,
-          lockLock: this.lockLock
+          lockLock: this.lockLock,
+          trashCanDisplayed: this.trashCanDisplayed
         }}
       />
     );
