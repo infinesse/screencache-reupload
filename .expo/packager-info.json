@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 1380,
-  "expoServerNgrokUrl": "https://5s-w8d.anonymous.screencache-master.exp.direct",
-  "packagerNgrokUrl": "https://packager.5s-w8d.anonymous.screencache-master.exp.direct",
-  "ngrokPid": 1391,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }

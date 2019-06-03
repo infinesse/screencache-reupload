@@ -90,7 +90,7 @@ class FlatListItem extends Component {
             {unlockedLock ? (
               <Icon
                 name="md-unlock"
-                style={{ color: '#d1cece' }}
+                style={{ color: '#d1cece', fontSize: 75 }}
                 onPress={() => {
                   lockLock();
                 }}
@@ -98,14 +98,20 @@ class FlatListItem extends Component {
             ) : (
               <Icon
                 name="md-lock"
-                style={{ color: 'white' }}
+                style={{ color: 'white', fontSize: 75 }}
                 onPress={() => {
                   unlockLock();
                 }}
               />
             )}
             {unlockedLock ? (
-              <Icon name="md-trash" style={{ margin: 15, color: 'red' }} />
+              <Icon
+                name="md-trash"
+                style={{ margin: 15, color: 'red', fontSize: 75 }}
+                onPress={() => {
+                  console.warn('trashpresed');
+                }}
+              />
             ) : null}
           </View>
           {/* </View> */}
