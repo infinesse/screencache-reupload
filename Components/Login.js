@@ -5,7 +5,8 @@ import {
   Dimensions,
   Button,
   Image,
-  Text
+  Text,
+  StatusBar
 } from 'react-native';
 
 var { width, height } = Dimensions.get('window');
@@ -27,14 +28,16 @@ class Login extends Component {
 
         <View style={styles.buttonBk}>
           <Button
-            onPress={() => navigate(Main)}
-            title="Submit"
+            onPress={() => this.props.navigation.navigate('Main')}
+            title="Login"
             color="blue"
-            width={width}
-            height={height}
-            backgroundColor="#292929"
           />
         </View>
+        <Button
+          onPress={() => this.props.navigation.navigate('Register')}
+          title="Create Account"
+          color="blue"
+        />
       </View>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import uuid from 'react-native-uuid';
-import NavigationTitle from './Components/NavigationTitle';
+import AppTabNavigator from './Components/NavigationTitle';
 import Login from './Components/Login';
 import Register from './Components/Register';
 
@@ -141,7 +141,7 @@ const MainStackNavigator = createSwitchNavigator({
     screen: Register
   },
   Main: {
-    screen: NavigationTitle
+    screen: AppTabNavigator
   }
 });
 const AppRun = createAppContainer(MainStackNavigator);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
 import FilterTab from '../FilterTab';
 import { SearchBar } from 'react-native-elements';
@@ -33,37 +33,39 @@ class DataSearch extends Component {
     } = this.props.screenProps;
 
     return (
-      <Container style={styles.container}>
-        <SearchBar
-          inputContainerStyle={{
-            backgroundColor: 'transparent',
-            borderWidth: 1,
-            borderRadius: 5
-          }}
-          containerStyle={{ backgroundColor: 'transparent' }}
-          // inputStyle={{ backgroundColor: 'grey' }}
-          placeholder="Filter for..."
-          placeholderTextColor="white"
-          onChangeText={updateSearch}
-          value={search}
-        />
-        <Content>
-          <FilterTab
-            {...{
-              items,
-              search,
-              editingItem,
-              beginEditItem,
-              endEditItem,
-              editItem,
-              unlockedLock,
-              unlockLock,
-              lockLock,
-              trashCanDisplayed
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+        <Container style={styles.container}>
+          <SearchBar
+            inputContainerStyle={{
+              backgroundColor: 'transparent',
+              borderWidth: 1,
+              borderRadius: 5
             }}
+            containerStyle={{ backgroundColor: 'transparent' }}
+            // inputStyle={{ backgroundColor: 'grey' }}
+            placeholder="Filter for..."
+            placeholderTextColor="white"
+            onChangeText={updateSearch}
+            value={search}
           />
-        </Content>
-      </Container>
+          <Content>
+            <FilterTab
+              {...{
+                items,
+                search,
+                editingItem,
+                beginEditItem,
+                endEditItem,
+                editItem,
+                unlockedLock,
+                unlockLock,
+                lockLock,
+                trashCanDisplayed
+              }}
+            />
+          </Content>
+        </Container>
+      </SafeAreaView>
     );
   }
 }

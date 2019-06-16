@@ -13,7 +13,7 @@ import UploadTab from './AppTabNavigator/UploadTab';
 //NOTE: Literally just navigation. TopBar oriented bottom.
 
 export default class NavigationTitle extends Component {
-  static navigationOptions = ({ navigation }) => ({
+  static navigationOptions = ({}) => ({
     headerStyle: {
       backgroundColor: 'black'
     },
