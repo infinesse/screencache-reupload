@@ -25,7 +25,7 @@ export default class NavigationTitle extends Component {
     },
     headerLeft: (
       <Icon
-        name="ios-contact"
+        name="md-today"
         onPress={() =>
           Alert.alert(
             'Self',
@@ -48,7 +48,7 @@ export default class NavigationTitle extends Component {
             { cancelable: false }
           )
         }
-        name="ios-contacts"
+        name="md-mail-unread"
         style={{ color: 'white', paddingRight: 10 }}
       />
     )
@@ -73,6 +73,7 @@ const AppTabNavigator = createMaterialTopTabNavigator(
   },
   {
     tabBarPosition: 'bottom',
+    swipeEnabled: false,
 
     tabBarOptions: {
       tabStyle: {},

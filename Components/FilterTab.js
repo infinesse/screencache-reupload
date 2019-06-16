@@ -50,6 +50,7 @@ class FlatListItem extends Component {
 
     const swipeSettings = {
       autoClose: true,
+      buttonWidth: 50,
 
       onClose: (secId, rowId, direction) => {
         if (this.state.activeRowKey != null) {
@@ -60,6 +61,33 @@ class FlatListItem extends Component {
         this.setState({ activeRowKey: this.props.item.key });
       },
       left: [
+        {
+          onPress: () => {
+            Alert.alert(
+              'Alert',
+              'Are you sure you want to share?',
+              [
+                {
+                  text: 'No',
+                  onPress: () => console.log('Cancel Pressed'),
+                  style: 'cancel'
+                },
+                {
+                  text: 'Yes',
+                  onPress: () => {
+                    null;
+                  }
+                }
+              ],
+              { cancelable: true }
+            );
+          },
+          text: 'Share',
+          type: 'Default',
+          backgroundColor: '#22cc'
+        }
+      ],
+      right: [
         {
           onPress: () => {
             Alert.alert(

@@ -1,8 +1,9 @@
 import React from 'react';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import uuid from 'react-native-uuid';
-// var uuid = require('react-native-uuid');
 import NavigationTitle from './Components/NavigationTitle';
+import Login from './Components/Login';
+import Register from './Components/Register';
 
 //NOTE: mock data and search and filter displayed
 const serverData = [
@@ -132,7 +133,13 @@ export default class App extends React.Component {
   }
 }
 
-const MainStackNavigator = createStackNavigator({
+const MainStackNavigator = createSwitchNavigator({
+  Login: {
+    screen: Login
+  },
+  Register: {
+    screen: Register
+  },
   Main: {
     screen: NavigationTitle
   }
