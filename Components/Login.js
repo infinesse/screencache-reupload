@@ -6,7 +6,9 @@ import {
   Button,
   Image,
   Text,
-  StatusBar
+  TextInput,
+  StatusBar,
+  Keyboard
 } from 'react-native';
 
 var { width, height } = Dimensions.get('window');
@@ -20,10 +22,21 @@ class Login extends Component {
 
         <Text style={styles.flexOne}>Welcome</Text>
         <View style={styles.formOne}>
-          <Text style={styles.centercenter}>USERNAME</Text>
+          <TextInput
+            style={styles.centercenter}
+            maxLength={20}
+            placeholder="User Name"
+            // value={this.state.userName}
+            // onChangeText={this.setState.userName}
+            onBlur={Keyboard.dismiss}
+          />
         </View>
         <View style={styles.formOne}>
-          <Text>EMAIL</Text>
+          <TextInput
+            maxLength={22}
+            placeholder="Email"
+            onBlur={Keyboard.dismiss}
+          />
         </View>
 
         <View style={styles.buttonBk}>

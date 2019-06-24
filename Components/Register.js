@@ -5,7 +5,9 @@ import {
   Dimensions,
   Button,
   Image,
-  Text
+  Text,
+  TextInput,
+  Keyboard
 } from 'react-native';
 
 var { width, height } = Dimensions.get('window');
@@ -19,10 +21,18 @@ class Register extends Component {
 
         <Text style={styles.flexOne}>Welcome</Text>
         <View style={styles.formOne}>
-          <Text style={styles.centercenter}>USERNAME</Text>
+          <TextInput
+            maxLength={20}
+            placeholder="User Name"
+            onBlur={Keyboard.dismiss}
+          />
         </View>
         <View style={styles.formOne}>
-          <Text>EMAIL</Text>
+          <TextInput
+            maxLength={20}
+            placeholder="Email"
+            onBlur={Keyboard.dismiss}
+          />
         </View>
 
         <View style={styles.buttonBk}>
