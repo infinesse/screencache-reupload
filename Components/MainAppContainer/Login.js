@@ -15,8 +15,10 @@ var { width, height } = Dimensions.get('window');
 
 class Login extends Component {
   render(height, width) {
+
     const { navigate } = this.props.navigation;
     return (
+
       <View style={styles.flexTwo}>
         <Text style={{ color: 'white' }}>Screencache</Text>
 
@@ -33,7 +35,7 @@ class Login extends Component {
         </View>
         <View style={styles.formOne}>
           <TextInput
-            maxLength={22}
+            maxLength={2}
             placeholder="Email"
             onBlur={Keyboard.dismiss}
           />
@@ -41,7 +43,7 @@ class Login extends Component {
 
         <View style={styles.buttonBk}>
           <Button
-            onPress={() => this.props.navigation.navigate('Main')}
+            onPress={() => this.props.navigation.navigate('Home')}
             title="Login"
             color="blue"
           />

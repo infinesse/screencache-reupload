@@ -80,6 +80,7 @@ class UploadTab extends Component {
     );
   }
 }
+
 export default UploadTab;
 
 // https://www.youtube.com/watch?v=Gq8udJJ724Y

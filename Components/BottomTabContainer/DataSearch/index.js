@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
 import { Container, Content, Icon } from 'native-base';
-import FilterTab from '../FilterTab';
+import FilterTab from './FilterTab';
 import { SearchBar } from 'react-native-elements';
 
 class DataSearch extends Component {
@@ -69,7 +69,6 @@ class DataSearch extends Component {
     );
   }
 }
-export default DataSearch;
 
 const styles = StyleSheet.create({
   container: {
@@ -77,3 +76,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'black'
   }
 });
+
+export default DataSearch;
