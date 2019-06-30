@@ -35,7 +35,7 @@ class Login extends Component {
         </View>
         <View style={styles.formOne}>
           <TextInput
-            maxLength={2}
+            maxLength={20}
             placeholder="Email"
             onBlur={Keyboard.dismiss}
           />

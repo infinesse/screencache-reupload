@@ -9,6 +9,12 @@ import MainTab from '../BottomTabContainer';
 import ProfileTab from './Profile';
 import SettingsTab from './Settings';
 
+
+// export default class TopTabNavigator extends React.Component {
+//   render() {
+//     return null;
+//   }};
+
 const TopTabNavigator = createMaterialTopTabNavigator(
   {
     Main: {
@@ -21,6 +27,7 @@ const TopTabNavigator = createMaterialTopTabNavigator(
       screen: SettingsTab
     }
   }, {
+    swipeEnabled: false,
     tabBarOptions: {
       labelStyle: {
         fontSize: 20,
