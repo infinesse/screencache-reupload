@@ -4,22 +4,14 @@ import { SearchBar } from 'react-native-elements';
 import { StyleSheet, View, Text } from 'react-native';
 
 class SettingsTab extends Component {
-  // static navigationOptions = {
-  //   title: 'Messages',
-  //   headerStyle: {
-  //     backgroundColor: '#f4511e',
-  //   },
-  //   headerTintColor: '#fff',
-  //   headerTitleStyle: {
-  //     fontWeight: 'bold',
-  //   },
-
-  //   tabBarIcon: ({ tintColor }) => (
-  //     <Icon name="ios-settings" style={{ color: "white" }} />
-  //   )
-  // };
+  static navigationOptions = {
+    tabBarIcon: ({ tintColor }) => (
+      <Icon name="ios-chatboxes" style={{ color: tintColor }} />
+    )
+  };
 
   render() {
+    const { } = this.props;
     return null;
   }
 }

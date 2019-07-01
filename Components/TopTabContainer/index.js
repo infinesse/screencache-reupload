@@ -17,7 +17,7 @@ import SettingsTab from './Settings';
 
 const TopTabNavigator = createMaterialTopTabNavigator(
   {
-    Main: {
+    ScreenCache: {
       screen: MainTab
       // ,
 
@@ -35,7 +35,7 @@ const TopTabNavigator = createMaterialTopTabNavigator(
     Profile: {
       screen: ProfileTab
     },
-    Messages: {
+    Message: {
       screen: SettingsTab
     }
   }, {
