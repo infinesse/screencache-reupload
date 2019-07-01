@@ -13,7 +13,7 @@ import {
 class Profile extends Component {
   static navigationOptions = {
     tabBarIcon: ({ tintColor }) => (
-      <Icon name="ios-person" style={{ color: "white" }} />
+      <Icon name="ios-person" style={{ color: tintColor }} />
     )
   };
 
