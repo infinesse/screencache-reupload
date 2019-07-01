@@ -19,6 +19,18 @@ const TopTabNavigator = createMaterialTopTabNavigator(
   {
     Main: {
       screen: MainTab
+      // ,
+
+      // navigationOptions: () => ({
+      //   title: 'Home',
+      //   tabBarIcon: ({ tintColor, focused }) => (
+      //     <Ionicons
+      //       name={focused ? 'ios-person' : 'ios-home-outline'}
+      //       size={100}
+      //       style={{ color: focused ? `${tabBarColor}` : tintColor }}
+      //     />
+      //   )
+      // })
     },
     Profile: {
       screen: ProfileTab
@@ -28,7 +40,14 @@ const TopTabNavigator = createMaterialTopTabNavigator(
     }
   }, {
     swipeEnabled: false,
+    // navigationOptions: {
+    //   tabBarIcon: () => (
+    //     <Icon name="ios-person" size={75} color="#900" />)
+    // },
     tabBarOptions: {
+
+      // showLabel: false,
+
       labelStyle: {
         fontSize: 20,
       },
