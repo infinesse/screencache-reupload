@@ -1,9 +1,7 @@
 import React from 'react';
 import uuid from 'react-native-uuid';
-import MainAppContainer from './Components/MainAppContainer';
+import MainAppContainer from './Components/RootNavigator';
 import serverData from './assets/serverData';
-
-
 
 const initialState = {
   items: serverData,
@@ -80,7 +78,6 @@ export default class App extends React.Component {
   // )
 
   render = () => (
-
     <MainAppContainer
       screenProps={{
         ...this.state,
