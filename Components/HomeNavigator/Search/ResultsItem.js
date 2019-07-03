@@ -16,17 +16,18 @@ const textStyle = {
 };
 
 const ResultsItem = ({
+  // Props
   item,
   index,
   isEditing,
+  itemsLocked,
+
+  // Actions
   beginEditItem,
   endEditItem,
   editItem,
   deleteItem,
-  unlockedLock,
-  unlockLock,
-  lockLock,
-  trashCanDisplayed
+  lockItems,
 }) => {
   const swipeSettings = {
     autoClose: true,
@@ -118,20 +119,20 @@ const ResultsItem = ({
               {item.textContent}
             </Text>
           )}
-          {/* <View
+
+          {/*<View
             style={{
               flex: 1,
               flexDirection: 'row',
               alignItems: 'bottom'
             }}
           >
-      
-            {unlockedLock ? (
+            {itemsLocked === false ? (
               <Icon
                 name="md-unlock"
                 style={{ color: '#d1cece', fontSize: 75 }}
                 onPress={() => {
-                  lockLock();
+                  lockItems(true);
                 }}
               />
             ) : (
@@ -139,11 +140,12 @@ const ResultsItem = ({
                 name="md-lock"
                 style={{ color: 'white', fontSize: 75 }}
                 onPress={() => {
-                  unlockLock();
+                  lockItems(false);
                 }}
               />
             )}
-            {unlockedLock ? (
+
+            {!itemsLocked && (
               <Icon
                 name="md-trash"
                 style={{ margin: 15, color: 'red', fontSize: 75 }}
@@ -151,8 +153,8 @@ const ResultsItem = ({
                   console.warn('trashpresed');
                 }}
               />
-            ) : null}
-          </View> */}
+            )}
+          </View>*/}
         </TouchableOpacity>
       </View>
     </Swipeout>
