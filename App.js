@@ -7,7 +7,6 @@ const initialState = {
   items: serverData,
   search: '',
   editingItem: null,
-  nextItemId: 100,
   itemsLocked: false
 };
 
