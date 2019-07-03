@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, StyleSheet, Button, Image } from 'react-native';
-import { Icon } from 'native-base';
-// import { LinearGradient } from 'expo';
+import { View, Dimensions, Button, Image } from 'react-native';
 import { ImagePicker } from 'expo';
 
 var { width, height } = Dimensions.get('window');
@@ -13,20 +11,6 @@ const initialState = {
 };
 
 class UploadTab extends Component {
-  static navigationOptions = {
-    tabBarIcon: ({ tintColor }) => (
-      <Icon
-        name="md-archive"
-        style={{
-          color: tintColor,
-          paddingBottom: 30
-          /*paddingLeft: 175
-
-          width: 200*/
-        }}
-      />
-    )
-  };
   state = initialState;
 
   _pickImage = async () => {
@@ -42,7 +26,7 @@ class UploadTab extends Component {
   };
 
   render() {
-    const { imageUri, imageWidth, imageHeight } = this.state;
+    const { imageUri } = this.state;
     const { addItem } = this.props.screenProps;
 
     return (

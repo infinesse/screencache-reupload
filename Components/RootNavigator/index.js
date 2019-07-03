@@ -1,9 +1,13 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import TopTabContainer from '../TopTabContainer';
+import TopStackContainer from '../MainNavigator';
 import Login from './Login';
 import Register from './Register';
+import Splash from './Splash';
 
 const SwitchNavigator = createSwitchNavigator({
+  Splash: {
+    screen: Splash
+  },
   Login: {
     screen: Login
   },
@@ -11,8 +15,11 @@ const SwitchNavigator = createSwitchNavigator({
     screen: Register
   },
   Home: {
-    screen: TopTabContainer
+    screen: TopStackContainer
   }
+},
+{
+  initialRouteName: 'Home'
 });
 
 export default createAppContainer(SwitchNavigator);

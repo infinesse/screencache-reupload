@@ -1,24 +1,25 @@
 # All screens
 
-Splash
-Login
-Signup
-Main
-List
-Upload
-Profile
-Messages
+* Splash
+* Login
+* Signup
+* Main
+* List
+* Upload
+* Profile
+* Messages
 
 # Structure
 
-App = MainAppContainer (SwitchNavigator)
+```
+App = RootNavigator
     Login
     Register
-    Home = TopTabContainer (TopNavigator)
+    Home = MainNavigator
         Profile
-        Settings
-        Main = BottomTabContainer (BottomNavigator)
+        Messages
+        Home = HomeNavigator
             Upload
-            Home = DataSearch
-                Search
+            Search
                 Filter
+```
