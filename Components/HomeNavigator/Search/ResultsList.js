@@ -3,16 +3,18 @@ import { View, FlatList } from 'react-native';
 import ResultsItem from './ResultsItem';
 
 const ResultsList = ({
+  // State
   items,
   search,
+  itemsLocked,
+
+  // Actions
   editingItem,
   beginEditItem,
   endEditItem,
   editItem,
-  unlockedLock,
-  unlockLock,
-  lockLock,
-  trashCanDisplayed
+  deleteItem,
+  lockItems
 }) => (
   <View style={{ flex: 1 }}>
     <FlatList
@@ -23,16 +25,20 @@ const ResultsList = ({
       renderItem={({ item, index }) => {
         return (
           <ResultsItem
+            // Calculated props
             item={item}
             index={index}
             isEditing={editingItem === item.key}
+
+            // State
+            itemsLocked={itemsLocked}
+
+            // Actions
             beginEditItem={beginEditItem}
             endEditItem={endEditItem}
             editItem={editItem}
-            unlockedLock={unlockedLock}
-            unlockLock={unlockLock}
-            lockLock={lockLock}
-            trashCanDisplayed={trashCanDisplayed}
+            deleteItem={deleteItem}
+            lockItems={lockItems}
           />
         );
       }}

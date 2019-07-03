@@ -7,26 +7,16 @@ const initialState = {
   items: serverData,
   search: '',
   editingItem: null,
-  nextItemId: 100,
-  unlockedLock: false,
-  trashCanDisplayed: false
+  itemsLocked: false
 };
 
 export default class App extends React.Component {
   state = initialState;
 
-  unlockLock = () =>
+  lockItems = (lock) =>
     this.setState({
       ...this.state,
-      unlockedLock: true,
-      trashCanDisplayed: true
-    });
-
-  lockLock = () =>
-    this.setState({
-      ...this.state,
-      unlockedLock: false,
-      trashCanDisplayed: false
+      itemsLocked: lock
     });
 
   updateSearch = search => {
@@ -73,9 +63,17 @@ export default class App extends React.Component {
     });
   };
 
-  // deleteItem = key => (
+  deleteItem = key => {
+    const removeIndex = this.state.items.findIndex(item => item.key === key);
 
-  // )
+    let newItems = this.state.items.slice();
+    newItems.splice(removeIndex, 1);
+
+    this.setState({
+      ...this.state,
+      items: newItems
+    });
+  };
 
   render = () => (
     <MainAppContainer
@@ -85,10 +83,10 @@ export default class App extends React.Component {
         beginEditItem: this.beginEditItem,
         endEditItem: this.endEditItem,
         editItem: this.editItem,
+        deleteItem: this.deleteItem,
         addItem: this.addItem,
-        unlockLock: this.unlockLock,
-        lockLock: this.lockLock,
-        trashCanDisplayed: this.trashCanDisplayed
+        itemsLocked: this.itemsLocked,
+        lockItems: this.lockItems
       }}
     />
   );

@@ -6,20 +6,19 @@ import { SearchBar } from 'react-native-elements';
 
 const Search = ({ screenProps }) => {
   const {
-    // App state
+    // State
     items,
     search,
     editingItem,
-    unlockedLock,
-    trashCanDisplayed,
+    itemsLocked,
 
-    // App props
+    // Actions
     updateSearch,
     beginEditItem,
     endEditItem,
     editItem,
-    unlockLock,
-    lockLock
+    deleteItem,
+    lockItems
   } = screenProps;
 
   return (
@@ -40,16 +39,18 @@ const Search = ({ screenProps }) => {
         <Content>
           <ResultsList
             {...{
+              // Pipe state
               items,
               search,
               editingItem,
+              itemsLocked,
+
+              // Pipe actions
               beginEditItem,
               endEditItem,
               editItem,
-              unlockedLock,
-              unlockLock,
-              lockLock,
-              trashCanDisplayed
+              deleteItem,
+              lockItems
             }}
           />
         </Content>
