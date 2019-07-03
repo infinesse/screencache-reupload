@@ -9,6 +9,7 @@ const ResultsList = ({
   beginEditItem,
   endEditItem,
   editItem,
+  deleteItem,
   unlockedLock,
   unlockLock,
   lockLock,
@@ -29,6 +30,7 @@ const ResultsList = ({
             beginEditItem={beginEditItem}
             endEditItem={endEditItem}
             editItem={editItem}
+            deleteItem={deleteItem}
             unlockedLock={unlockedLock}
             unlockLock={unlockLock}
             lockLock={lockLock}

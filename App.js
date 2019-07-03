@@ -73,9 +73,17 @@ export default class App extends React.Component {
     });
   };
 
-  // deleteItem = key => (
+  deleteItem = key => {
+    const removeIndex = this.state.items.findIndex(item => item.key === key);
 
-  // )
+    let newItems = this.state.items.slice();
+    newItems.splice(removeIndex, 1);
+
+    this.setState({
+      ...this.state,
+      items: newItems
+    });
+  };
 
   render = () => (
     <MainAppContainer
@@ -85,6 +93,7 @@ export default class App extends React.Component {
         beginEditItem: this.beginEditItem,
         endEditItem: this.endEditItem,
         editItem: this.editItem,
+        deleteItem: this.deleteItem,
         addItem: this.addItem,
         unlockLock: this.unlockLock,
         lockLock: this.lockLock,

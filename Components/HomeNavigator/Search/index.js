@@ -18,6 +18,7 @@ const Search = ({ screenProps }) => {
     beginEditItem,
     endEditItem,
     editItem,
+    deleteItem,
     unlockLock,
     lockLock
   } = screenProps;
@@ -46,6 +47,7 @@ const Search = ({ screenProps }) => {
               beginEditItem,
               endEditItem,
               editItem,
+              deleteItem,
               unlockedLock,
               unlockLock,
               lockLock,
