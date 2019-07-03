@@ -41,7 +41,6 @@ const ResultsItem = ({
             [
               {
                 text: 'No',
-                onPress: () => console.log('Cancel Pressed'),
                 style: 'cancel'
               },
               {
@@ -68,8 +67,7 @@ const ResultsItem = ({
             [
               {
                 text: 'No',
-                style: 'cancel',
-                onPress: () => console.log('Cancel Pressed')
+                style: 'cancel'
               },
               {
                 text: 'Yes',
