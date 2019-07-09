@@ -16,7 +16,7 @@ const textStyle = {
 };
 
 const ResultsItem = ({
-  // Props
+  // State
   item,
   index,
   isEditing,
@@ -110,6 +110,7 @@ const ResultsItem = ({
               value={item.textContent}
               onChangeText={newText => editItem(item.key, newText)}
               onSubmitEditing={endEditItem}
+              autoFocus={isEditing}
               multiline
             />
           ) : (
