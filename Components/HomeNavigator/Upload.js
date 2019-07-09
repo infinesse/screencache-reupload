@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, Dimensions, Button, Image } from 'react-native';
-import { ImagePicker } from 'expo';
+import * as Permissions from 'expo-permissions';
+import * as ImagePicker from 'expo-image-picker'
 
-var { width, height } = Dimensions.get('window');
+let { width, height } = Dimensions.get('window');
 
 const initialState = {
   imageUri: null,
@@ -14,14 +15,18 @@ class UploadTab extends Component {
   state = initialState;
 
   _pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync();
+    const res = await Permissions.askAsync(Permissions.CAMERA_ROLL)
 
-    if (!result.cancelled) {
-      this.setState({
-        imageUri: result.uri,
-        imageWidth: result.width,
-        imageHeight: result.height
-      });
+    if (res.status === 'granted') {
+      let result = await ImagePicker.launchImageLibraryAsync();
+
+      if (!result.cancelled) {
+        this.setState({
+          imageUri: result.uri,
+          imageWidth: result.width,
+          imageHeight: result.height
+        });
+      }
     }
   };
 
