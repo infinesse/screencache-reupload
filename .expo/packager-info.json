@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 7845,
-  "expoServerNgrokUrl": "https://r9-u46.anonymous.screencache-reupload.exp.direct",
-  "packagerNgrokUrl": "https://packager.r9-u46.anonymous.screencache-reupload.exp.direct",
-  "ngrokPid": 7867,
+  "packagerPid": 936,
+  "expoServerNgrokUrl": "https://r9-u46.anonymous.screencache-master.exp.direct",
+  "packagerNgrokUrl": "https://packager.r9-u46.anonymous.screencache-master.exp.direct",
+  "ngrokPid": 945,
   "webpackServerPort": null
 }
