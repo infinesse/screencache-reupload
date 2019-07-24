@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView } from 'react-native';
-import { Container, Content, Icon } from 'native-base';
+import { Container, Content } from 'native-base';
 import ResultsList from './ResultsList';
 import { SearchBar } from 'react-native-elements';
 
-const Search = ({ screenProps }) => {
+const Search = ({ screenProps, navigation }) => {
   const {
     // State
     items,
@@ -39,6 +39,9 @@ const Search = ({ screenProps }) => {
         <Content>
           <ResultsList
             {...{
+              // Pipe props
+              navigation,
+
               // Pipe state
               items,
               search,

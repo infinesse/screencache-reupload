@@ -4,6 +4,7 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 import { Icon } from 'native-base';
 import SearchTab from './Search';
 import UploadTab from './Upload';
+import ItemDetails from './Details';
 
 const BottomTabNavigator = createMaterialBottomTabNavigator(
   {
@@ -17,6 +18,9 @@ const BottomTabNavigator = createMaterialBottomTabNavigator(
           />
         )
       }
+    },
+    Details: {
+      screen: ItemDetails,
     },
     Upload: {
       screen: UploadTab,

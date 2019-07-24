@@ -3,6 +3,9 @@ import { View, FlatList } from 'react-native';
 import ResultsItem from './ResultsItem';
 
 const ResultsList = ({
+  // Props
+  navigation,
+
   // State
   items,
   search,
@@ -26,6 +29,7 @@ const ResultsList = ({
         return (
           <ResultsItem
             // Calculated props
+            navigation={navigation}
             item={item}
             index={index}
             isEditing={editingItem === item.key}
