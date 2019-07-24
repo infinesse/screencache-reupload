@@ -1,18 +1,21 @@
 import React from 'react';
-import { StackActions, NavigationActions } from 'react-navigation';
-import ImageViewer from 'react-native-image-zoom-viewer';
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  fullScreen: {
+    flex: 1,
+    width: null,
+    height: null
+  }
+});
 
 export default ({ navigation }) => (
-  <ImageViewer
-    enableImageZoom={true}
-    enableSwipeDown={true}
-    onCancel={() => navigation.dispatch(StackActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'Home' })]
-    }))}
-    renderIndicator={() => false}
-    imageUrls={[
-      { url: navigation.getParam('imageUrl') }
-    ]}
-  />
+  <View style={styles.fullScreen}>
+    <TouchableOpacity style={styles.fullScreen} onPress={() => navigation.goBack()}>
+      <Image
+        style={styles.fullScreen}
+        source={{uri: navigation.getParam('imageUrl')}}
+      />
+    </TouchableOpacity>
+  </View>
 );
