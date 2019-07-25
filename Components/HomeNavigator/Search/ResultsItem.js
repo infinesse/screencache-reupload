@@ -1,13 +1,16 @@
-import React from 'react';
-import Swipeout from 'react-native-swipeout';
+import React, { Component } from 'react';
 import {
-  View,
-  Image,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Alert
+    View,
+    Image,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    Animated,
+    Clipboard 
 } from 'react-native';
+import ResultsItemSwipeout from './ResultsItemSwipeout';
+
+const LONG_PRESS_TIME = 1000;
 
 const textStyle = {
   flex: 1,
@@ -15,153 +18,126 @@ const textStyle = {
   color: 'white'
 };
 
-const ResultsItem = ({
-  navigation,
+export default class ResultsItem extends Component {
+  state = {
+    pressAction: new Animated.Value(0),
+    toastAction: new Animated.Value(0),
+    showToast: false
+  }
 
-  // State
-  item,
-  index,
-  isEditing,
-  itemsLocked,
+  componentWillMount() {
+    this._pressAccumulator = 0;
+    this._enablePress = true;
+    this.state.pressAction.addListener(v => this._pressAccumulator = v.value);
+    this.state.toastAction.addListener(v => this._toastAccumulator = v.value);
+  }
 
-  // Actions
-  beginEditItem,
-  endEditItem,
-  editItem,
-  deleteItem,
-  lockItems,
-}) => {
-  const swipeSettings = {
-    autoClose: true,
-    buttonWidth: 50,
-    left: [
-      {
-        onPress: () => {
-          Alert.alert(
-            'Alert',
-            'Are you sure you want to share?',
-            [
-              {
-                text: 'No',
-                style: 'cancel'
-              },
-              {
-                text: 'Yes',
-                onPress: () => {
-                  null;
-                }
-              }
-            ],
-            { cancelable: true }
-          );
-        },
-        text: 'Share',
-        type: 'Default',
-        backgroundColor: '#22cc'
-      }
-    ],
-    right: [
-      {
-        onPress: () => {
-          Alert.alert(
-            'Alert',
-            'Are you sure you want to delete?',
-            [
-              {
-                text: 'No',
-                style: 'cancel'
-              },
-              {
-                text: 'Yes',
-                onPress: () => deleteItem(item.key)
-              }
-            ],
-            { cancelable: true }
-          );
-        },
-        text: 'Delete',
-        type: 'delete'
-      }
-    ],
-    rowId: index,
-    sectionId: 1
-  };
-  return (
-    <Swipeout {...swipeSettings}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          borderWidth: 5,
-          borderColor: '#2e2e2e',
 
-          backgroundColor: '#1f1f1f'
-        }}
+  handlePress() {
+    if (this._enablePress)
+      this.props.navigation.navigate('Details', { imageUrl: this.props.item.imageUrl })
+  }
+
+  handleLongPress() {
+    this._enablePress = false;
+    Clipboard.setString(this.props.item.textContent);
+    this.showToast();
+  }
+
+  handlePressIn() {
+    console.log('state is', this.state);
+    Animated
+      .timing(this.state.pressAction, { duration: LONG_PRESS_TIME, toValue: 1 })
+      .start(() => this._pressAccumulator === 1 && this.handleLongPress());
+  }
+
+  handlePressOut() {
+    Animated
+      .timing(this.state.pressAction, { duration: this._pressAccumulator * LONG_PRESS_TIME, toValue: 0 })
+      .start(() => this._enablePress = true)
+  }
+
+  showToast() {
+    this._toastAccumulator = 0;
+
+    this.setState({
+      ...this.state,
+      showToast: true
+    });
+
+    Animated
+      .timing(this.state.toastAction, { duration: LONG_PRESS_TIME, toValue: 1 })
+      .start(() => this._toastAccumulator === 1 && this.hideToast());
+  }
+
+  hideToast() {
+    this.setState({
+      ...this.state,
+      showToast: false
+    });
+  }
+  render() {
+    const {
+      navigation,
+    
+      item,
+      index,
+      isEditing,
+      itemsLocked,
+    
+      beginEditItem,
+      endEditItem,
+      editItem,
+      deleteItem,
+      lockItems
+    } = this.props;
+
+    return (
+      <ResultsItemSwipeout
+        item={item}
+        index={index}
+        deleteItemHandler={deleteItem}
       >
-        <TouchableOpacity onPress={
-          () => navigation.navigate('Details', { imageUrl: item.imageUrl })}
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            borderWidth: 5,
+            borderColor: '#2e2e2e',
+            marginBottom: 5,
+            backgroundColor: '#1f1f1f'
+          }}
         >
-          <Image
-            source={{ uri: item.imageUrl }}
-            style={{ width: 200, height: 300, margin: 5 }}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={{ flex: 1, flexWrap: 'wrap' }}>
-          {isEditing ? (
-            <TextInput
-              style={textStyle}
-              value={item.textContent}
-              onChangeText={newText => editItem(item.key, newText)}
-              onSubmitEditing={endEditItem}
-              autoFocus={isEditing}
-              multiline
+          <TouchableOpacity
+            onPress={this.handlePress.bind(this)}
+            onPressIn={this.handlePressIn.bind(this)}
+            onPressOut={this.handlePressOut.bind(this)}
+          >
+            {this.state.showToast && <Text style={textStyle}>Copied to clipboard!</Text>}
+            <Image
+              source={{ uri: item.imageUrl }}
+              style={{ width: 200, height: 300, margin: 5 }}
             />
-          ) : (
+          </TouchableOpacity>
+  
+          <TouchableOpacity style={{ flex: 1, flexWrap: 'wrap' }}>
+            {isEditing ? (
+              <TextInput
+                style={textStyle}
+                value={item.textContent}
+                onChangeText={newText => editItem(item.key, newText)}
+                onSubmitEditing={endEditItem}
+                autoFocus={isEditing}
+                multiline
+              />
+            ) : (
               <Text style={textStyle} onPress={() => beginEditItem(item.key)}>
                 {item.textContent}
               </Text>
             )}
-
-          {/*<View
-            style={{
-              flex: 1,
-              flexDirection: 'row',
-              alignItems: 'bottom'
-            }}
-          >
-            {itemsLocked === false ? (
-              <Icon
-                name="md-unlock"
-                style={{ color: '#d1cece', fontSize: 75 }}
-                onPress={() => {
-                  lockItems(true);
-                }}
-              />
-            ) : (
-              <Icon
-                name="md-lock"
-                style={{ color: 'white', fontSize: 75 }}
-                onPress={() => {
-                  lockItems(false);
-                }}
-              />
-            )}
-
-            {!itemsLocked && (
-              <Icon
-                name="md-trash"
-                style={{ margin: 15, color: 'red', fontSize: 75 }}
-                onPress={() => {
-                  console.warn('trashpresed');
-                }}
-              />
-            )}
-          </View>*/}
-        </TouchableOpacity>
-      </View>
-    </Swipeout>
-  );
+          </TouchableOpacity>
+        </View>
+      </ResultsItemSwipeout>
+    );
+  }
 };
-
-export default ResultsItem;
