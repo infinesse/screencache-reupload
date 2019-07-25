@@ -16,6 +16,8 @@ const textStyle = {
 };
 
 const ResultsItem = ({
+  navigation,
+
   // State
   item,
   index,
@@ -96,7 +98,9 @@ const ResultsItem = ({
           backgroundColor: '#1f1f1f'
         }}
       >
-        <TouchableOpacity onPress={() => console.warn('image pressed')}>
+        <TouchableOpacity onPress={
+          () => navigation.navigate('Details', { imageUrl: item.imageUrl })}
+        >
           <Image
             source={{ uri: item.imageUrl }}
             style={{ width: 200, height: 300, margin: 5 }}
