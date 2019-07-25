@@ -6,7 +6,7 @@ import {
     TextInput,
     TouchableOpacity,
     Animated,
-    Clipboard
+    Clipboard 
 } from 'react-native';
 import ResultsItemSwipeout from './ResultsItemSwipeout';
 
@@ -31,6 +31,7 @@ export default class ResultsItem extends Component {
     this.state.pressAction.addListener(v => this._pressAccumulator = v.value);
     this.state.toastAction.addListener(v => this._toastAccumulator = v.value);
   }
+
 
   handlePress() {
     if (this._enablePress)
@@ -75,7 +76,6 @@ export default class ResultsItem extends Component {
       showToast: false
     });
   }
-
   render() {
     const {
       navigation,

@@ -54,7 +54,7 @@ const Profile = () => (
           color: 'white', textShadowColor: 'rgba(0, 0, 0, 0.75)',
           textShadowOffset: { width: 3, height: 3 },
           textShadowRadius: 1
-        }}>I browse reddit mostly, and tend to find the best stuff deepest in the comments.</Text>
+        }}>I browse reddit mostly, and tend to find the most important inforamtion deepest in the comments.</Text>
         <View style={{ flex: 1 }}>
 
         </View>
