@@ -52,7 +52,7 @@ const TopStackNavigator = createStackNavigator(
       },
       headerRight: (
         <View style={styles.menu}>
-          <StatusBar barStyle="light-content"/>
+          <StatusBar barStyle="light-content" />
           <Icon
             name="md-search"
             onPress={() => navigation.navigate('Home')}

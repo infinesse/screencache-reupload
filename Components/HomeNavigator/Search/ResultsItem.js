@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-    View,
-    Image,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    Animated,
-    Clipboard 
+  View,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Animated,
+  Clipboard
 } from 'react-native';
 import ResultsItemSwipeout from './ResultsItemSwipeout';
 
@@ -79,12 +79,12 @@ export default class ResultsItem extends Component {
   render() {
     const {
       navigation,
-    
+
       item,
       index,
       isEditing,
       itemsLocked,
-    
+
       beginEditItem,
       endEditItem,
       editItem,
@@ -104,7 +104,7 @@ export default class ResultsItem extends Component {
             flexDirection: 'row',
             borderWidth: 5,
             borderColor: '#2e2e2e',
-            marginBottom: 5,
+
             backgroundColor: '#1f1f1f'
           }}
         >
@@ -119,7 +119,7 @@ export default class ResultsItem extends Component {
               style={{ width: 200, height: 300, margin: 5 }}
             />
           </TouchableOpacity>
-  
+
           <TouchableOpacity style={{ flex: 1, flexWrap: 'wrap' }}>
             {isEditing ? (
               <TextInput
@@ -131,10 +131,10 @@ export default class ResultsItem extends Component {
                 multiline
               />
             ) : (
-              <Text style={textStyle} onPress={() => beginEditItem(item.key)}>
-                {item.textContent}
-              </Text>
-            )}
+                <Text style={textStyle} onPress={() => beginEditItem(item.key)}>
+                  {item.textContent}
+                </Text>
+              )}
           </TouchableOpacity>
         </View>
       </ResultsItemSwipeout>
