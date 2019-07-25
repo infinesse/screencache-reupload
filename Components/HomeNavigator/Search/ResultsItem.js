@@ -1,12 +1,12 @@
 import React from 'react';
 import Swipeout from 'react-native-swipeout';
 import {
-    View,
-    Image,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    Alert
+  View,
+  Image,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 const textStyle = {
@@ -94,7 +94,7 @@ const ResultsItem = ({
           flexDirection: 'row',
           borderWidth: 5,
           borderColor: '#2e2e2e',
-          marginBottom: 5,
+
           backgroundColor: '#1f1f1f'
         }}
       >
@@ -118,10 +118,10 @@ const ResultsItem = ({
               multiline
             />
           ) : (
-            <Text style={textStyle} onPress={() => beginEditItem(item.key)}>
-              {item.textContent}
-            </Text>
-          )}
+              <Text style={textStyle} onPress={() => beginEditItem(item.key)}>
+                {item.textContent}
+              </Text>
+            )}
 
           {/*<View
             style={{
