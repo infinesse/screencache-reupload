@@ -9,15 +9,10 @@ import HomeScreen from '../HomeNavigator';
 import ProfileScreen from './Profile';
 import MessagesScreen from './Messages';
 
-const styles = StyleSheet.create({
-  icon: {
-    color: 'white'
-  },
-  menu: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    width: 120
-  }
+const getNavIconStyle = (routeName, currentRouteName) => ({
+  color: routeName === currentRouteName
+    ? '#3e2665'
+    : '#f0edf6'
 });
 
 const TopStackNavigator = createStackNavigator(
@@ -52,22 +47,26 @@ const TopStackNavigator = createStackNavigator(
       },
       headerLeft: null,
       headerRight: (
-        <View style={styles.menu}>
+        <View style={{
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          width: 120
+        }}>
           <StatusBar barStyle="light-content" />
           <Icon
             name="md-search"
             onPress={() => navigation.navigate('Home')}
-            style={styles.icon}
+            style={getNavIconStyle('Home', navigation.state.routeName)}
           />
           <Icon
             name="md-person"
             onPress={() => navigation.navigate('Profile')}
-            style={styles.icon}
+            style={getNavIconStyle('Profile', navigation.state.routeName)}
           />
           <Icon
             name="md-chatbubbles"
             onPress={() => navigation.navigate('Messages')}
-            style={styles.icon}
+            style={getNavIconStyle('Messages', navigation.state.routeName)}
           />
         </View>
       )
