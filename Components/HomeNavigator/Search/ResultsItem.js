@@ -83,6 +83,7 @@ export default class ResultsItem extends Component {
       item,
       index,
       isEditing,
+      isNew,
       itemsLocked,
 
       beginEditItem,
@@ -127,7 +128,9 @@ export default class ResultsItem extends Component {
                 value={item.textContent}
                 onChangeText={newText => editItem(item.key, newText)}
                 onSubmitEditing={endEditItem}
+                onBlur={endEditItem}
                 autoFocus={isEditing}
+                selectTextOnFocus={isNew}
                 multiline
               />
             ) : (

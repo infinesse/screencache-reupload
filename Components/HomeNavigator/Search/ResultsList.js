@@ -10,6 +10,7 @@ const ResultsList = ({
   items,
   search,
   itemsLocked,
+  newItem,
 
   // Actions
   editingItem,
@@ -33,6 +34,7 @@ const ResultsList = ({
             item={item}
             index={index}
             isEditing={editingItem === item.key}
+            isNew={newItem}
 
             // State
             itemsLocked={itemsLocked}

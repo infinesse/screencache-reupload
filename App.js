@@ -7,6 +7,7 @@ const initialState = {
   items: serverData,
   search: '',
   editingItem: null,
+  newItem: false,
   itemsLocked: false
 };
 
@@ -35,7 +36,8 @@ export default class App extends React.Component {
   endEditItem = () =>
     this.setState({
       ...this.state,
-      editingItem: null
+      editingItem: null,
+      newItem: false
     });
 
   editItem = (key, text) => {
@@ -53,6 +55,7 @@ export default class App extends React.Component {
     this.setState({
       ...this.state,
       editingItem: newItemId,
+      newItem: true,
       items: [
         {
           key: newItemId,
