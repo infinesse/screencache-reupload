@@ -10,6 +10,7 @@ const Search = ({ screenProps, navigation }) => {
     items,
     search,
     editingItem,
+    newItem,
     itemsLocked,
 
     // Actions
@@ -46,6 +47,7 @@ const Search = ({ screenProps, navigation }) => {
               items,
               search,
               editingItem,
+              newItem,
               itemsLocked,
 
               // Pipe actions
