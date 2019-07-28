@@ -50,6 +50,7 @@ const TopStackNavigator = createStackNavigator(
       headerTitleStyle: {
         color: 'white'
       },
+      headerLeft: null,
       headerRight: (
         <View style={styles.menu}>
           <StatusBar barStyle="light-content" />
