@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import ResultsItem from './ResultsItem';
+import getMatch from './getMatch';
 
 const ResultsList = ({
   // Props
@@ -22,10 +23,7 @@ const ResultsList = ({
 }) => (
   <View style={{ flex: 1 }}>
     <FlatList
-      data={items
-        .filter(item => !search || (item.textContent || '')
-        .search(new RegExp(search, 'i')) !== -1
-      )}
+      data={items.filter(getMatch(search))}
       renderItem={({ item, index }) => {
         return (
           <ResultsItem
