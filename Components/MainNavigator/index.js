@@ -26,13 +26,13 @@ const TopStackNavigator = createStackNavigator(
     Profile: {
       screen: ProfileScreen,
       navigationOptions: {
-        title: 'profile'
+        title: 'screencache'
       }
     },
     Messages: {
       screen: MessagesScreen,
       navigationOptions: {
-        title: 'messages'
+        title: 'screencache'
       }
     }
   },
