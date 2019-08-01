@@ -41,7 +41,7 @@ const BottomTabNavigator = createMaterialBottomTabNavigator(
     initialRouteName: 'Search',
     activeColor: '#3e2465',
     inactiveColor: '#f0edf6',
-    barStyle: { backgroundColor: 'black' },
+    barStyle: { backgroundColor: '#557B' },
     labeled: false
   }
 );

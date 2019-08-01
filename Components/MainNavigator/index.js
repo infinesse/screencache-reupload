@@ -40,7 +40,7 @@ const TopStackNavigator = createStackNavigator(
     headerMode: 'float',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: 'black'
+        backgroundColor: '#557B'
       },
       headerTitleStyle: {
         color: 'white'

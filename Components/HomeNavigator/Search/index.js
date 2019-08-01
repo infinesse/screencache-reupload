@@ -67,7 +67,7 @@ const Search = ({ screenProps, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: '#557B'
   }
 });
 
