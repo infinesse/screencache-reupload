@@ -45,7 +45,6 @@ export default class ResultsItem extends Component {
   }
 
   handlePressIn() {
-    console.log('state is', this.state);
     Animated
       .timing(this.state.pressAction, { duration: LONG_PRESS_TIME, toValue: 1 })
       .start(() => this._pressAccumulator === 1 && this.handleLongPress());
