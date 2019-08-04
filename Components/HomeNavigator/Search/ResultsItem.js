@@ -103,9 +103,9 @@ export default class ResultsItem extends Component {
             flex: 1,
             flexDirection: 'row',
             borderWidth: 5,
-            borderColor: '#557B',
+            borderColor: '#007399',
 
-            backgroundColor: '#557B'
+            backgroundColor: '#001f29'
           }}
         >
           <TouchableOpacity

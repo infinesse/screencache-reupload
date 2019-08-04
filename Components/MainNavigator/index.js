@@ -11,7 +11,7 @@ import MessagesScreen from './Messages';
 
 const getNavIconStyle = (routeName, currentRouteName) => ({
   color: routeName === currentRouteName
-    ? '#3e2665'
+    ? '#004991'
     : '#f0edf6'
 });
 
@@ -40,7 +40,7 @@ const TopStackNavigator = createStackNavigator(
     headerMode: 'float',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: '#557B'
+        backgroundColor: '#003452'
       },
       headerTitleStyle: {
         color: 'white'
