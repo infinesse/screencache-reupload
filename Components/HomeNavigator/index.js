@@ -1,12 +1,12 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import createAnimatedBottomTabNavigator from './createAnimatedBottomTabNavigator';
 import { Icon } from 'native-base';
 import SearchTab from './Search';
 import UploadTab from './Upload';
 import ItemDetails from './Details';
 
-const BottomTabNavigator = createMaterialBottomTabNavigator(
+const BottomTabNavigator = createAnimatedBottomTabNavigator(
   {
     Search: {
       screen: SearchTab,
@@ -38,11 +38,20 @@ const BottomTabNavigator = createMaterialBottomTabNavigator(
     }
   },
   {
-    initialRouteName: 'Search',
-    activeColor: '#004991',
-    inactiveColor: '#f0edf6',
-    barStyle: { backgroundColor: '#003452' },
-    labeled: false
+    tabBarOptions: {
+      activeTintColor: '#004991',
+      inactiveTintColor: '#f0edf6',
+      tabStyle: {
+        backgroundColor: '#003452',
+        paddingTop: 16
+      },
+      style: {
+        backgroundColor: '#003452',
+        height: 16,
+        paddingTop: 8
+      },
+      showLabel: false
+    }
   }
 );
 
