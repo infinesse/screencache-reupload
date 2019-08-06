@@ -1,23 +1,26 @@
+const isEmpty = textContent => !textContent || textContent.length == 0;
+const allMatch = () => true;
+
 export default search => {
     // Search keywords may be separated by space, colon, semicolon, comma, period, or dash
-    const keywords = search.split(/[\s;:\.,-]+/);
+    const patterns = search
+        .split(/[\s;:\.,-]+/)
+        .filter(keyword => keyword.length)
+        .map(keyword => new RegExp(keyword, 'i'));
 
-    return item => {
-        // No search criteria - everything matches
-        if (!search || search.length === 0)
-            return true;
-
-        // Blank items - never match
-        if (!item.textContent || item.textContent.length === 0)
-            return false;
-
-        // Search for each keyword separately
-        return keywords
-            .reduce(
-                (matches, keyword) => (
-                    matches ||
-                    item.textContent.search(new RegExp(keyword, 'i')) !== -1
-                ),
-                false);
-    };
+    return patterns.length === 0
+        // No search criteria returns everything
+        ? allMatch
+        // Search text content of each item
+        : ({ textContent }) => (
+            isEmpty(textContent)
+                // Never return blank items from search
+                ? false
+                // Select items where text content matches any keyword
+                : patterns.reduce(
+                    (match, pattern) => (
+                        match ||
+                        textContent.search(pattern) !== -1
+                    ),
+                    false));
 };
