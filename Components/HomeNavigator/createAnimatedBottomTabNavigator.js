@@ -17,9 +17,10 @@ class AnimatedTabNavigationView extends React.Component {
     if (
       prevProps.navigation.state.index !== this.props.navigation.state.index
     ) {
-      Animated.timing(this.state.selectedIndexAnimated, {
+      Animated.spring(this.state.selectedIndexAnimated, {
         toValue: this.props.navigation.state.index,
-        duration: 250,
+        speed: 10000,
+
       }).start();
     }
   }
@@ -41,7 +42,7 @@ class AnimatedTabNavigationView extends React.Component {
       <Animated.View
         style={[
           StyleSheet.absoluteFillObject,
-          { backgroundColor: '#fff', opacity },
+          { backgroundColor: '#007399', opacity },
         ]}
         pointerEvents={index === activeIndex ? 'auto' : 'none'}
         key={route.key}>
