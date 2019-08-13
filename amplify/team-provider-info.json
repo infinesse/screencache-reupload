@@ -9,6 +9,11 @@
             "UnauthRoleName": "screencache-reupload-dev-20190812194233-unauthRole",
             "StackName": "screencache-reupload-dev-20190812194233",
             "StackId": "arn:aws:cloudformation:us-west-2:230195792405:stack/screencache-reupload-dev-20190812194233/00b26ca0-bd74-11e9-878c-06825eacfe56"
+        },
+        "categories": {
+            "auth": {
+                "screencachereuploadd4910cd7": {}
+            }
         }
     }
 }

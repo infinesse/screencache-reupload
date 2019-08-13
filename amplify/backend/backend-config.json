@@ -1,1 +1,9 @@
-{}
+{
+	"auth": {
+		"screencachereuploadd4910cd7": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

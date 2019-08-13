@@ -2,6 +2,7 @@
   "expo": {
     "name": "ScreenCache",
     "slug": "ScreenCache",
+    "scheme": "screencache",
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
