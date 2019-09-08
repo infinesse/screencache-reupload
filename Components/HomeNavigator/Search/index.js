@@ -29,7 +29,7 @@ const Search = ({ screenProps, navigation }) => {
 
       <Container style={{
         flex: 1,
-        backgroundColor: colors.Alternate
+        backgroundColor: colors.Background
       }}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
