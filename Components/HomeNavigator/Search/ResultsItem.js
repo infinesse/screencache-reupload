@@ -9,6 +9,7 @@ import {
   Clipboard
 } from 'react-native';
 import ResultsItemSwipeout from './ResultsItemSwipeout';
+import colors from '../../../assets/colors.json';
 
 const LONG_PRESS_TIME = 1000;
 
@@ -104,9 +105,9 @@ export default class ResultsItem extends Component {
             flex: 1,
             flexDirection: 'row',
             borderWidth: 5,
-            borderColor: '#303030',
+            borderColor: colors.Background,
 
-            backgroundColor: '#303030'
+            backgroundColor: colors.Background
           }}
         >
           <TouchableOpacity

@@ -4,6 +4,7 @@ import { Container, Content } from 'native-base';
 import ResultsList from './ResultsList';
 import { SearchBar } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
+import colors from '../../../assets/colors.json';
 
 const Search = ({ screenProps, navigation }) => {
   const {
@@ -26,11 +27,14 @@ const Search = ({ screenProps, navigation }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
 
-      <Container style={styles.container}>
+      <Container style={{
+        flex: 1,
+        backgroundColor: colors.Alternate
+      }}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          colors={['#219386', '#2A3694']}
+          colors={[colors.Alternate, colors.Primary]}
         >
 
           <SearchBar
@@ -74,13 +78,18 @@ const Search = ({ screenProps, navigation }) => {
     </SafeAreaView>
   );
 };
-// searchbar color 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#219386'
-  }
-});
+
+
+const myGradientFunc = ({ startColor, endColor }) => (
+  <LinearGradient
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 1 }}
+    colors={[startColor, endColor]}
+  ></LinearGradient>
+
+);
+
+
 // #612f3f
 // #400036
 // #0099cc

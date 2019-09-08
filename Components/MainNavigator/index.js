@@ -8,6 +8,7 @@ import {
 import HomeScreen from '../HomeNavigator';
 import ProfileScreen from './Profile';
 import MessagesScreen from './Messages';
+import colors from '../../assets/colors.json';
 
 const getNavIconStyle = (routeName, currentRouteName) => ({
   color: routeName === currentRouteName
@@ -40,7 +41,7 @@ const TopStackNavigator = createStackNavigator(
     headerMode: 'float',
     defaultNavigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: '#862574'
+        backgroundColor: colors.Secondary
       },
       headerTitleStyle: {
         color: 'white'

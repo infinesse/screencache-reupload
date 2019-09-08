@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Dimensions, Button, Image } from 'react-native';
 import * as Permissions from 'expo-permissions';
-import * as ImagePicker from 'expo-image-picker'
+import * as ImagePicker from 'expo-image-picker';
+import colors from '../../assets/colors.json';
 
 let { width, height } = Dimensions.get('window');
 
@@ -40,7 +41,7 @@ class UploadTab extends Component {
           flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#1f1f1f',
+          backgroundColor: colors.Background,
           width: width,
           height: height
         }}

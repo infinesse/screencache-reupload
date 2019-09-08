@@ -3,6 +3,7 @@ import React from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import { BottomTabBar, createTabNavigator } from 'react-navigation-tabs';
 import { LinearGradient } from 'expo-linear-gradient';
+import colors from '../../assets/colors.json';
 
 class AnimatedTabNavigationView extends React.Component {
   constructor(props) {
@@ -61,7 +62,7 @@ class AnimatedTabNavigationView extends React.Component {
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          colors={['#219386', '#2A3694']}
+          colors={[colors.Alternate, colors.Primary]}
           style={{ alignItems: 'center' }}>
           <TabBar {...this.props} /></LinearGradient>
       </View>
