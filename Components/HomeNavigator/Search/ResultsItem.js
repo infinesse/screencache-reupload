@@ -98,14 +98,15 @@ export default class ResultsItem extends Component {
         index={index}
         deleteItemHandler={deleteItem}
       >
+        {/* card and background color */}
         <View
           style={{
             flex: 1,
             flexDirection: 'row',
             borderWidth: 5,
-            borderColor: '#007399',
+            borderColor: '#303030',
 
-            backgroundColor: '#001f29'
+            backgroundColor: '#303030'
           }}
         >
           <TouchableOpacity

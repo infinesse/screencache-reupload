@@ -42,11 +42,11 @@ const BottomTabNavigator = createAnimatedBottomTabNavigator(
       activeTintColor: '#004991',
       inactiveTintColor: '#f0edf6',
       tabStyle: {
-        backgroundColor: '#003452',
+        backgroundColor: 'transparent',
         paddingTop: 16
       },
       style: {
-        backgroundColor: '#003452',
+        backgroundColor: 'transparent',
         height: 16,
         paddingTop: 8
       },
