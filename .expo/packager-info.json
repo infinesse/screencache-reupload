@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1203,
+  "packagerPid": 575,
   "expoServerNgrokUrl": "https://cf-i3s.anonymous.screencache-master.exp.direct",
   "packagerNgrokUrl": "https://packager.cf-i3s.anonymous.screencache-master.exp.direct",
-  "ngrokPid": 1214,
+  "ngrokPid": 584,
   "webpackServerPort": null
 }

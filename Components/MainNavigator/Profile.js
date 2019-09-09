@@ -10,58 +10,91 @@ import {
   FlatList
 } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
+import { Avatar } from 'react-native-elements';
+import { LinearGradient } from 'expo-linear-gradient';
+import colors from '../../assets/colors.json';
+
 var { height, width } = Dimensions.get('window');
 const Profile = () => (
-  <View style={{ flex: 1 }}>
+  <View style={{ flexDirection: 'row', flex: 1 }}>
     {/* <SafeAreaView style={{ flex: 1 }}> */}
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#1f1f1f', }}>
-      <ImageBackground source={{ uri: "https://lh3.googleusercontent.com/BO97zNM8F56Ht-SV3lnJWmvhBGHrNLvjTrdyMWJ-IzGCAZi1aTfBaFdJDrgqo4WzUHLe7rYs0WDaBp4-Wd6mqNlaD8I" }} style={{ flex: 1, backgroundColor: '#666666', width: width, height: null }}>
-        <Text style={{
-          flex: 1, textShadowColor: 'rgba(0, 0, 0, 0.75)',
-          textShadowOffset: { width: 3, height: 3 },
-          textShadowRadius: 1,
-          color: 'white',
-          fontSize: 20,
-          fontWeight: 'bold',
-          paddingLeft: width / 25,
-          paddingTop: height / 8
+    <View style={{ flex: 1 }}>
+      <LinearGradient style={{ flex: 1, width: width, height: null }} start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        colors={[colors.Alternate, colors.Primary]}>
 
 
-        }}>Meowterspace</Text>
-        <Text style={{ flex: 1, color: 'rgba(0, 0, 0, 0.75)', fontWeight: 'bold', fontSize: 18, paddingLeft: width / 25 }}>Portland, Oregon USA</Text>
-        <View style={{ flexDirection: 'row' }}>
-          <Text style={{ flex: 1, color: 'white', paddingLeft: width / 8 }}>205 Friends</Text>
 
-          <Text style={{ flex: 1, color: 'white' }}>Message</Text>
-          <Text style={{ flex: 1, color: 'white' }}>+</Text>
+        <View style={{ flexDirection: 'row', flex: 1 }}>
+          <View style={{ flex: 1 }}>
+            <Avatar
+              rounded
+              source={{
+                uri:
+                  'https://www.barnesandnoble.com/blog/teen/wp-content/uploads/sites/6/2016/10/AdventureTime.jpg',
+              }}
+              style={{ flex: 1, height: '100%', width: '100%' }}
+            />
+          </View>
 
 
+          <View style={{ flexDirection: 'row', flex: 2 }}>
+            <View style={{ flexDirection: 'column', flex: 2 }}>
+              <Text style={{
+                flex: 1, textShadowColor: 'rgba(0, 0, 0, 0.75)',
+                textShadowOffset: { width: 3, height: 3 },
+                textShadowRadius: 1,
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+                paddingLeft: width / 25,
+                paddingTop: height / 8
+              }}>Meowterspace</Text>
+
+
+              <View style={{ flex: 1 }}>
+                <View style={{ flexDirection: 'row', flex: 1 }}>
+                  <Text style={{ flex: 1, color: 'white', paddingLeft: width / 16 }}>205 Friends</Text>
+
+                  <Text style={{ flex: 1, color: 'white' }}>10 Friends in Common</Text>
+                  <Text style={{ flex: 1, color: 'white', paddingLeft: width / 16 }}>+</Text>
+                </View>
+
+              </View>
+            </View>
+
+
+
+          </View>
         </View>
-      </ImageBackground>
+
+
+      </LinearGradient>
       {/* <View style={{ flex: 1, flexWrap: 'wrap', color: 'green', width: width, height: height / 3 }}>
 
         </View> */}
       <View style={{ height: height / 200, width: width, backgroundColor: 'black' }}></View>
-      <ImageBackground source={{ uri: "https://cdna.artstation.com/p/assets/images/images/017/254/806/large/john-park-parrish.jpg?1555253161" }}
-        style={{
-          flex: 3,
-          width: width,
-          height: null
-
-          // opacity: .5 
-        }}>
+      <LinearGradient style={{ flex: 3, width: width, height: null }} start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        colors={[colors.Alternate, colors.Primary]}>
         <Text style={{
           color: 'white', textShadowColor: 'rgba(0, 0, 0, 0.75)',
           textShadowOffset: { width: 3, height: 3 },
-          textShadowRadius: 1
-        }}>I browse reddit mostly, and tend to find the most important inforamtion deepest in the comments.</Text>
+          textShadowRadius: 1,
+          paddingLeft: width / 6,
+          paddingTop: width / 6,
+          paddingRight: width / 6
+        }}>I browse reddit mostly, and tend to find the most important information deepest in the comments.</Text>
         <View style={{ flex: 1 }}>
 
         </View>
         <View style={{ flex: 2 }}>
           <Text>Add images to page here.</Text>
         </View>
-      </ImageBackground>
+
+        <View style={{ height: height / 200, width: width, backgroundColor: 'black' }}></View>
+
+      </LinearGradient>
 
 
     </View>
